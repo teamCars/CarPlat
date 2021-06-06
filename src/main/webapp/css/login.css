@@ -1,0 +1,53 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.contanier{
+    border:none;
+    width: 100%;
+    margin: auto;
+}
+
+#from{
+    width: 100%;
+    height: 580px;
+    background-image: url("../img/loginregist/loginImg.jpg");
+    /*background-size:contain;*/
+    /*border-radius: 15px;*/
+}
+
+#father{
+    padding-top: 60px;
+    border: none;
+    float: right;
+
+}
+
+#from2{
+    width: 600px;
+    height: 550px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+}
+
+#from2 input{
+    width: 50px;
+    height: 20px;
+    margin-top:30px;
+}
+#sub{
+    background-color: #8568fc;
+    border-radius: 25px;
+    width: 170px;
+    height: 50px;
+    font-size: 18px;
+    font-family: Arial,"宋体";
+}
+.error{
+    color:red;
+}
+
+.success{
+    color:green;
+}

@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "pingFangSC-Regular";
+  src: url("foots/glyphicons-halflings-regular.eot");
+  src: url("foots/glyphicons-halflings-regular.svg");
+  src: url("foots/glyphicons-halflings-regular.ttf");
+  src: url("foots/glyphicons-halflings-regular.woff");
+  src: url("foots/glyphicons-halflings-regular.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
