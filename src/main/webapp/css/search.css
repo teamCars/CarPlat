@@ -1,0 +1,729 @@
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.site-topbar {
+				position: relative;
+				height: 40px;
+				font-size: 12px;
+				color: #b0b0b0;
+				background-color: #333;
+			}
+			
+			.container {
+				width: 600px;
+				margin: auto;
+				position: relative;
+			}
+			
+			.topbar-nav {
+				height: 40px;
+				float: left;
+				line-height: 40px;
+			}
+			
+			.topbar-nav a {
+				color: #B0B0B0;
+				text-decoration: none;
+				display: inline-block;
+				line-height: 40px;
+			}
+			
+			.topbar-nav a:hover {
+				color: white;
+			}
+			
+			.topbar-nav span {
+				opacity: 0.2;
+				margin: 0.3em;
+			}
+			
+			.topbar-cart {
+				position: relative;
+				float: right;
+				width: 120px;
+				height: 40px;
+				margin-left: 15px;
+				font-size: 12px;
+			}
+			
+			.topbar-cart span {
+				color: #B0B0B0;
+				display: inline-block;
+				line-height: 40px;
+				font-size: 20px;
+				vertical-align: -4px;
+			}
+			
+			.topbar-cart a {
+				color: #B0B0B0;
+				text-decoration: none;
+				height: 40px;
+				display: block;
+				text-align: center;
+				line-height: 40px;
+				vertical-align: middle;
+			}
+			
+			.topbar-cart a:hover {
+				background-color: white;
+				color: orange;
+			}
+			
+			.topbar-cart a:hover span {
+				color: orange;
+			}
+			
+			.topbar-info {
+				float: right;
+				position: relative;
+				height: 40px;
+				line-height: 40px;
+			}
+			
+			.topbar-info a {
+				color: #B0B0B0;
+				text-decoration: none;
+			}
+			
+			.topbar-info a:hover {
+				color: white;
+			}
+			
+			.topbar-info span {
+				opacity: 0.2;
+				margin: 0.3em;
+			}
+			
+			.site-header {
+				position: relative;
+				height: 100px;
+			}
+			
+			.hearer-logo {
+				float: left;
+				position: relative;
+				width: 62px;
+				margin-top: 22px;
+			}
+			
+			.hearer-logo a img {
+				width: 56px;
+				height: 56px;
+			}
+			
+			.header-nav {
+				float: left;
+				width: 850px;
+				/*background-color: pink;*/
+			}
+			
+			.site-header .nav-list {
+				position: relative;
+				float: left;
+				width: 800px;
+				height: 88px;
+				list-style: none;
+				font-size: 16px;
+				/*background-color: pink;*/
+				margin: 0;
+				padding: 12px 0 0 30px;
+			}
+			
+			.site-header .nav_category {
+				float: left;
+				position: relative;
+				width: 127px;
+			}
+			
+			.site-header .nav_category .link-category {
+				display: block;
+				padding: 26px 10px 38px;
+				text-align: right;
+				color: #333;
+				text-decoration: none;
+			}
+			
+			.site-header .nav-item {
+				float: left;
+			}
+			
+			.site-header .nav-item a {
+				display: block;
+				padding: 26px 10px 38px;
+				text-align: right;
+				color: #333;
+				text-decoration: none;
+			}
+			
+			.site-header .nav-item a:hover {
+				color: orange;
+			}
+			
+			.header-search {
+				position: relative;
+				float: right;
+				width: 304px;
+				height: 80px;
+				margin-top: 25px;
+			}
+			
+			.header-search #sousuo {
+				position: absolute;
+				top: 0;
+				width: 250px;
+				height: 50px;
+				border: 1px solid #e0e0e0;
+				outline: none;
+				padding: 0 10px;
+			}
+			
+			.header-search #sousuo:hover {
+				border: 1px solid #b0b0b0;
+			}
+			
+			.search-btn {
+				position: absolute;
+				right: 0;
+				width: 52px;
+				height: 52px;
+				line-height: 24px;
+				font-size: 24px;
+				background: #fff;
+				color: #616161;
+				border: 1px solid #e0e0e0;
+			}
+			
+			.search-btn:hover {
+				background-color: #ff6700;
+				color: white;
+			}
+			
+			.seckill {
+				background: #f5f5f5;
+				position: relative;
+			}
+			
+			.seckill .seckill-head {
+				background: #f5f5f5  50% 0 no-repeat;
+				height: 170px;
+			}
+			
+			.seckill .seckill-banner {
+				position: absolute;
+				background: #414141;
+				margin-top: -68px;
+				height: 68px;
+				margin-bottom: 22px;
+				/*width: 1226px;*/
+			}
+			
+			.seckill .seckill-banner ul {
+				width: 100%;
+				background: #414141;
+				overflow: hidden;
+				height: 68px;
+			}
+			
+			.seckill .seckill-banner ul li {
+				list-style: none;
+				float: left;
+				width: 50%;
+				cursor: pointer;
+				line-height: 68px;
+				height: 68px;
+				text-align: center;
+			}
+			
+			.seckill .seckill-banner .active {
+				background-color: #f1393a;
+			}
+			
+			.seckill-con {
+				height: 700px;
+				background-color: #f5f5f5;
+			}
+			
+			.seckill-con ul {
+				margin-left: -13px;
+			}
+			
+			.seckill-con ul li {
+				list-style: none;
+				width: 400px;
+				height: 190px;
+				margin-top: 15px;
+				background: #fff;
+				float: left;
+				margin-left: 10px;
+			}
+			
+			.seckill-con ul li:hover {
+				/*margin-top: -1px;*/
+				box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+				transition: all .2s linear;
+			}
+			
+			.seckill-con ul li .seckill_box {
+				position: absolute;
+				width: 100%;
+				top: 0;
+				left: 0;
+				z-index: 2;
+				cursor: pointer;
+			}
+			
+			.seckill-con ul li img {
+				width: 180px;
+				height: 190px;
+			}
+			
+			.seckill-con ul li .img-con {
+				width: 190px;
+				height: 190px;
+				float: left;
+				overflow: hidden;
+			}
+			
+			.seckill-con ul li .pro-con {
+				width: 180px;
+				margin-left: 210px;
+				padding-top: 30px;
+			}
+			
+			.seckill-con ul li .pro-con .name {
+				overflow: hidden;
+				display: block;
+				font-size: 16px;
+				color: #333;
+				height: 16px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				line-height: 16px;
+			}
+			
+			.seckill-con ul li .pro-con .desc {
+				display: block;
+				font-size: 12px;
+				height: 32px;
+				line-height: 16px;
+				color: rgba(0, 0, 0, .54);
+				line-height: 12px;
+				margin-top: 7px;
+				overflow: hidden;
+			}
+			
+			.seckill-con ul li .pro-con .price {
+				font-size: 16px;
+				color: #F1393A;
+				line-height: 1;
+				margin-top: 14px;
+				display: block;
+			}
+			
+			.seckill-con ul li .pro-con del {
+				font-size: 12px;
+				margin-left: 10px;
+				color: rgba(0, 0, 0, .54);
+				font-style: normal;
+			}
+			
+			.seckill-con ul li .pro-con .seckill-btn {
+				display: block;
+				position: absolute;
+				width: 120px;
+				height: 30px;
+				cursor: pointer;
+				background-color: #F1393A;
+				color: white;
+				text-align: center;
+				font-size: 13px;
+				line-height: 30px;
+				margin-left: 195px;
+				margin-top: 20px;
+			}
+			
+			.seckill .notic {
+				width: 1226px;
+				padding-bottom: 35px;
+				font-size: 12px;
+				color: rgba(0, 0, 0, .27);
+			}
+			
+			.site-footer {
+				width: 100%;
+				height: 332px;
+				background-color: white;
+			}
+			
+			.footer-service {
+				width: 100%;
+				height: 25px;
+				padding: 27px 0;
+				position: relative;
+				border-bottom: 1px solid #E0E0E0;
+			}
+			
+			.footer-service ul li {
+				float: left;
+				list-style: none;
+				width: 19%;
+				height: 25px;
+				line-height: 25px;
+				font-size: 16px;
+				border-right: 1px solid #E0E0E0;
+				text-align: center;
+			}
+			
+			.footer-service ul li a {
+				text-decoration: none;
+				color: #616161;
+			}
+			
+			.footer-service ul li:hover>span {
+				color: #FF6700;
+			}
+			
+			.footer-service ul li a:hover {
+				color: #FF6700;
+			}
+			
+			.footer-links .col-links {
+				width: 160px;
+				float: left;
+				margin-top: 20px;
+			}
+			
+			.footer-links .col-links li {
+				list-style: none;
+				line-height: 30px;
+				font-size: 12px;
+			}
+			
+			.footer-links .col-links .ul-header {
+				font-size: 14px;
+				color: black;
+				/*line-height: 40px;*/
+				margin: 10px 0;
+			}
+			
+			.footer-links .col-links a {
+				text-decoration: none;
+				color: #757575;
+			}
+			
+			.footer-links .col-links a:hover {
+				color: orange;
+			}
+			
+			.col-contact {
+				width: 251px;
+				margin-top: 30px;
+				float: right;
+				border: 1px solid red;
+				text-align: center;
+				height: 140px;
+			}
+			
+			.phone {
+				color: #FF6700;
+				font-size: 22px;
+			}
+			
+			.col-contact p {
+				margin: 5px 0 5px 0;
+			}
+			
+			.help {
+				width: 120px;
+				height: 30px;
+				display: block;
+				border: 1px solid #FF6700;
+				color: #FF6700;
+				text-align: center;
+				margin: auto;
+				font-size: 12px;
+				line-height: 30px;
+			}
+			
+			.help:hover {
+				background-color: #FF6700;
+				color: white;
+				cursor: pointer;
+			}
+			
+			.site-info {
+				padding: 30px 0;
+				font-size: 12px;
+				background: #fafafa;
+			}
+			
+			.container {
+				position: relative;
+			}
+			
+			.logo {
+				width: 56px;
+				height: 56px;
+				background: url(img/logo-mi2.png) no-repeat;
+				background-size: cover;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			.info-text {
+				margin-left: 67px;
+			}
+			
+			.info-text .sites {
+				font-size: 12px;
+				line-height: 18px;
+			}
+			
+			.info-text .sites a {
+				text-decoration: none;
+				color: #757575;
+			}
+			
+			.info-text .sites a:hover {
+				color: #FF6700;
+			}
+			
+			.info-text .sites-footer {
+				font-size: 12px;
+				color: #B0B0B0;
+			}
+			
+			.info-text .sites-footer a {
+				text-decoration: none;
+				color: #B0B0B0;
+			}
+			
+			.info-text .sites-footer a:hover {
+				color: #FF6700;
+			}
+			
+			.info-links {
+				/*border: 1px solid orange;*/
+				margin-left: 67px;
+				padding: 4px 0;
+			}
+			
+			.info-links img {
+				width: 85px;
+				height: 28px;
+			}
+			
+			.site-info .slogan {
+				/*border: 1px solid red;*/
+				clear: both;
+				margin: auto;
+				margin-top: 50px;
+				width: 1000px;
+				height: 30px;
+				background-image: url(img/slogan.png);
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+			
+			#menu-content {
+				width: 316px;
+				height: 100px;
+				background-color: white;
+				position: absolute;
+				right: 0;
+				top: 40px;
+				z-index: 1;
+				display: none;
+				text-align: center;
+				box-shadow: 0px 2px 10px rgba(0, 0, 0, .15);
+			}
+			
+			#menu-content p {
+				font-size: 12px;
+				color: #424242;
+				line-height: 100px;
+			}
+			
+			/*.item-seckill:hover {
+				box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25) transition: all .2s linear;
+			}*/
+			
+			.header-nav-menu {
+				position: absolute;
+				top: 140px;
+				width: 100%;
+				height: 200px;
+				background-color: pink;
+				z-index: 1;
+				box-shadow: 0 3px 4px rgba(0, 0, 0, .18);
+				border-top: 1px solid #e0e0e0;
+				background: #fff;
+				overflow: hidden;
+				display: none;
+			}
+			
+			.children-list {
+				list-style: none;
+			}
+			
+			.children-list img {
+				/*border-right: 1px solid #B0B0B0;*/
+				width: 160px;
+				height: 110px;
+				cursor: pointer;
+			}
+			
+			.children-list li {
+				position: relative;
+				float: left;
+				padding: 35px 12px 0;
+				width: 170px;
+				height: 150px;
+				/*background-color: green;*/
+				text-align: center;
+				/*border-right: 1px solid #B0B0B0;*/
+			}
+			
+			.phone-name {
+				color: #333333;
+				line-height: 20px;
+				font-size: 12px;
+			}
+			
+			.phone-price {
+				color: #FF6700;
+				line-height: 20px;
+				font-size: 12px;
+			}
+			
+			.seckill-banner li a {
+				text-decoration: none;
+				color: #fff;
+			}
+			
+			.seckill-banner li em {
+				margin-left: 30px;
+				display: inline-block;
+				font-style: normal;
+				font-size: 18px;
+				line-height: 1;
+				vertical-align: middle;
+			}
+			
+			.seckill-banner li span em {
+				text-align: left;
+				line-height: 20px;
+				display: inline-block;
+				font-style: normal;
+				font-size: 14px;
+				margin-left: 0;
+			}
+			
+			.seckill-banner span {
+				display: inline-block;
+				margin-left: 15px;
+				text-align: left;
+				vertical-align: middle;
+				line-height: 1;
+				font-size: 14px;
+			}
+			
+			.seckill-banner p {
+				display: inline-block;
+				/*margin-left: 15px;*/
+				text-align: left;
+				vertical-align: middle;
+				line-height: 1;
+				font-size: 14px;
+			}
+			
+			#seckill-con1 {
+				/*display:none;*/
+				width: 1200px;
+				position: absolute;
+				top: 170px;
+				left: 50%;
+				margin-left: -613px;
+				display: none;
+			}
+			
+			#seckill-con2 {
+				/*display:none;*/
+				width: 1200px;
+				position: absolute;
+				top: 170px;
+				left: 50%;
+				margin-left: -613px;
+				display: none;
+			}
+			#seckill-con3 {
+				/*display:none;*/
+				width: 1200px;
+				position: absolute;
+				top: 170px;
+				left: 50%;
+				margin-left: -613px;
+				display: none;
+			}
+			#seckill-con4 {
+				/*display:none;*/
+				width: 1200px;
+				position: absolute;
+				top: 170px;
+				left: 50%;
+				margin-left: -613px;
+				display: none;
+			}
+			#seckill-con5 {
+				/*display:none;*/
+				width: 1200px;
+				position: absolute;
+				top: 170px;
+				left: 50%;
+				margin-left: -613px;
+				display: none;
+			}
+			.seckill-head{
+				width: 700px;
+				height: 50px;
+				margin: auto;
+				position: relative;
+				/* border: 1px solid red; */
+				/* text-align: center; */
+			}
+			.seckill-head input{
+				position: absolute;
+				width: 300px;
+				height: 50px;
+				/* border-radius: 10px; */
+				border: 1px solid lightblue;
+				outline: none;
+				margin-top: 45px;
+				margin-left: 610px;
+				border-right: 0;
+			}
+			#search1{
+				position: absolute;
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				margin-top: 45px;
+				margin-left: 910px;
+				text-align: center;
+				font-size: 30px;
+				line-height: 50px;
+				border: 1px solid lightblue;
+				border-left: 0;
+			}
+			
+			.clearfix{
+				padding-left: 100px;
+			}
+			.item-seckill{
+				
+				margin-right: 100px;
+				
+			}

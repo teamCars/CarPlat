@@ -1,5 +1,5 @@
 	ul {
-				list-style: none;
+						list-style: none;
 			}
 			a{
 				text-decoration: none;
@@ -27,6 +27,7 @@
 				border-radius: 2px;
 				font-weight: 600;
 				margin-top: 15px;
+				/*margin-left: 20px;*/
 				margin-right: 30px;
 			}
 			/*	<!-- 网站提供的服务的图片 -->*/

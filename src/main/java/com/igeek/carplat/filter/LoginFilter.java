@@ -6,8 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "f2",
-        urlPatterns = "/firstPageAfter.jsp" )
+@WebFilter(filterName = "f2")
 public class LoginFilter implements Filter {
     public void destroy() {
     }
@@ -20,9 +19,9 @@ public class LoginFilter implements Filter {
         Object user = session.getAttribute("user");
         //判断当前资源，是否有登录者信息，如果没有则不放行
         if(user == null){
-            request.getRequestDispatcher("login.jsp");
+            request.getRequestDispatcher(request.getContextPath()+"/login.jsp").forward(request,resp);
+            return;
         }
-
 
         chain.doFilter(req, resp);
     }

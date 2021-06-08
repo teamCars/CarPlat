@@ -148,7 +148,8 @@ public class UserServlet extends BaseServlet {
         }
         else {
             //登录失败，跳转到登录页面，然后信息回显，并显示失败原因
-            request.setAttribute("user",user);
+            request.setAttribute("username",username);
+            request.setAttribute("pwd",pwd);
             request.getRequestDispatcher("login.jsp").forward(request,response);
         }
 
