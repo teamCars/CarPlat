@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 半糖去冰
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="path" scope="session" value="${pageContext.request.contextPath}"></c:set>
 <html>
 
 <head>
@@ -172,146 +174,24 @@
             <div class="seckill-con">
                 <div class="container">
                     <ul class="clearfix">
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/c200.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span title="奔驰C200L" class="name">
-											C200L
-										</span>
-										<span class="desc">
-											奔驰
-										</span>
-										<span class="price">
-											1499.00元
+
+                        <%--  活动商品--%>
+                        <c:forEach items="${coldProducts}" var="product">
+                            <li class="item-seckill">
+                                <a href="${path}/product?method=findProductByCid&cid=${product.cid}" class="seckill_box"></a>
+                                <div class="item-box">
+									<span class="img-con"><img src="${product.carImg}"/></span>
+                                    <span class="pro-con">
+										<span title="奔驰C200L" class="name">${product.type}</span>
+										<span class="desc">奔驰</span>
+										<span class="price">${product.price}元
 											<del>24999元</del>
 										</span>
-										<span class="seckill-btn">
-											登录后预订
-										</span>
-										</span>
-                            </div>
-                        </li>
-
-
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/gle.jpg"/>
+										<span class="seckill-btn">登录后预订</span>
 									</span>
-                                <span class="pro-con">
-										<span  class="name">
-											GLE
-										</span>
-										<span class="desc">
-											奔驰
-										</span>
-										<span class="price">
-											3499元
-											<del>3999元</del>
-										</span>
-										<span class="seckill-btn">
-											登录后预订
-										</span>
-										</span>
-                            </div>
-                        </li>
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/gls.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span  class="name">
-											GLS
-										</span>
-										<span class="desc">
-											奔驰
-										</span>
-										<span class="price">
-											4399.00元
-											<del>4999元</del>
-										</span>
-										<span class="seckill-btn">
-											登录后预订
-										</span>
-										</span>
-                            </div>
-                        </li>
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/c63.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span  class="name">
-											C63
-										</span>
-										<span class="desc">
-											奔驰
-										</span>
-										<span class="price">
-											3499.00元
-											<del>3999元</del>
-										</span>
-										<span class="seckill-btn">
-											登录后预订
-										</span>
-										</span>
-                            </div>
-                        </li>
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/e53.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span  class="name">
-											E53
-										</span>
-										<span class="desc">
-											奔驰
-										</span>
-										<span class="price">
-											4499.00元
-											<del>4999元</del>
-										</span>
-										<span class="seckill-btn">
-											登录后预订
-										</span>
-										</span>
-                            </div>
-                        </li>
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/g63.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span class="name">
-											G63
-										</span>
-										<span class="desc">
-											奔驰
-										</span>
-										<span class="price">
-											5499.00元
-											<del>5999元</del>
-										</span>
-										<span class="seckill-btn">
-											登录后预订
-										</span>
-										</span>
-                            </div>
-                        </li>
+                                </div>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </div>
 
@@ -319,152 +199,24 @@
             <div class="seckill-con" id="seckill-con1">
                 <div class="container">
                     <ul class="clearfix">
-
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/X3.jpg"/>
+                        <%--  最新商品--%>
+                        <c:forEach items="${newProduct}" var="product">
+                            <li class="item-seckill">
+                                <a href="${path}/product?method=findProductByCid&cid=${product.cid}" class="seckill_box"></a>
+                                <div class="item-box">
+									<span class="img-con"><img src="${product.carImg}"/></span>
+                                    <span class="pro-con">
+										<span  class="name">${product.type}</span>
+										<span class="desc">宝马</span>
+										<span class="price">${product.price}元<del>32.9元</del></span>
+										<span class="seckill-btn" style="background-color: #71b639">收藏</span>
 									</span>
-                                <span class="pro-con">
-										<span  class="name">
-											X3
-										</span>
-										<span class="desc">
-											宝马
-										</span>
-										<span class="price">
-											25.90元
-											<del>32.9元</del>
-										</span>
-										<span class="seckill-btn" style="background-color: #71b639">
-											收藏
-										</span>
-										</span>
-                            </div>
-                        </li>
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/X5.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span class="name">
-											X5
-										</span>
-										<span class="desc">
-											宝马
-										</span>
-										<span class="price">
-											249.00元
-											<del>299元</del>
-										</span>
-										<span class="seckill-btn" style="background-color: #71b639">
-											收藏
-										</span>
-										</span>
-                            </div>
-                        </li>
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/X7.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span  class="name">
-											X7
-										</span>
-										<span class="desc">
-											宝马
-										</span>
-										<span class="price">
-											169.00元
-											<del>199元</del>
-										</span>
-										<span class="seckill-btn" style="background-color: #71b639">
-											收藏
-										</span>
-										</span>
-                            </div>
-                        </li>
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/M2.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span  class="name">
-											M2
-										</span>
-										<span class="desc">
-											宝马
-										</span>
-										<span class="price">
-											32.90元
-											<del>44.7元</del>
-										</span>
-										<span class="seckill-btn" style="background-color: #71b639">
-											收藏
-										</span>
-										</span>
-                            </div>
-                        </li>
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/M3.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span  class="name">
-											M3
-										</span>
-										<span class="desc">
-											宝马
-										</span>
-										<span class="price">
-											166.00元
-											<del>199元</del>
-										</span>
-										<span class="seckill-btn" style="background-color: #71b639">
-											收藏
-										</span>
-										</span>
-                            </div>
-                        </li>
-                        <li class="item-seckill">
-                            <a href="#" class="seckill_box"></a>
-                            <div class="item-box">
-										<span class="img-con">
-										<img src="img1/M4.jpg"/>
-									</span>
-                                <span class="pro-con">
-										<span  class="name">
-											M4
-										</span>
-										<span class="desc">
-											宝马
-										</span>
-										<span class="price">
-											1999.00元
-											<del>2299元</del>
-										</span>
-										<span class="seckill-btn" style="background-color: #71b639">
-											收藏
-										</span>
-										</span>
-                            </div>
-                        </li>
+                                </div>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 
