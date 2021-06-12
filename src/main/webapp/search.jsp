@@ -150,11 +150,14 @@
 <div class="header w" >
 
     <!-- search -->
-    <div class="search" style="margin-top: 100px;">
+    <form action="${path}/product?method=findProducts" method="post">
+        <div class="search" style="margin-top: 100px;">
 
-        <input type="text" class="text" placeholder="Search" id="type" name="type" value="${type}" >
-        <button class="btn">搜索</button>
-    </div>
+            <input type="text" class="text" placeholder="Search" id="type" name="type" value="${type}">
+            <button type="submit" class="btn">搜索</button>
+        </div>
+    </form>
+
 
 
 </div>
@@ -165,23 +168,16 @@
 
     <div class="sk_bd clearfix">
         <ul>
+            <c:forEach items="${list}" var="product">
+                <a href="${path}/product?method=findProductByCid&cid=${product.cid}">
 
-            <c:forEach items="${vo.list}" var="product">
-                <li class="sk_goods">
-                    <a href="${path}/product?method=findProductByCid&cid=${product.cid}">
-                        <img src="upload/mobile.jpg" alt="">
+                    <li class="sk_goods">
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
                         <h5 class="sk_goods_title">${product.cid}</h5>
-                    </a>
-                    <p class="sk_goods_price"><em>${product.price}</em> <del>￥6988</del></p>
-                    <div class="sk_goods_progress">
-                        已售<i>87%</i>
-                        <div class="bar">
-                            <div class="bar_in"></div>
-                        </div>
-                        剩余<em>29</em>件
-                    </div>
-                    <a href="#" class="sk_goods_buy">立即抢购</a>
-                </li>
+                        <p class="sk_goods_price"><em>${product.price}</em> <del>￥6988</del></p>
+                    </li>
+                </a>
+
             </c:forEach>
 
 
@@ -189,21 +185,21 @@
     </div>
     <!-- page分页制作 -->
 
-    <c:if test="${vo.list.size} ne 0">
+   <%-- <c:if test="${vo.list.size} ne 0">
 
         <div class="page">
 			<span class="page_num">
-                <%--    不允许点击上一页   --%>
+                &lt;%&ndash;    不允许点击上一页   &ndash;%&gt;
                 <c:if test="${vo.pageNow eq 1}">
                     <a href="#" class="pn_prev">&lt;&lt;上一页 </a>
                 </c:if>
 
-                <%-- 允许点击上一页--%>
+                &lt;%&ndash; 允许点击上一页&ndash;%&gt;
 				<c:if test="${vo.pageNow ne 1}">
                     <a href="${path}/product?method=findProducts&bid=${vo.query1}&type=${vo.query2}&pageNow=${vo.pageNow-1}" class="pn_prev">&lt;&lt;上一页 </a>
                 </c:if>
 
-                <%--循环展示页码--%>
+                &lt;%&ndash;循环展示页码&ndash;%&gt;
 
                  <c:forEach begin="1" end="${vo.myPages}" var="page">
 
@@ -218,12 +214,12 @@
                  </c:forEach>
 
 				<a href="#" class="dotted">...</a>
-                <%--允许点击下一页--%>
+                &lt;%&ndash;允许点击下一页&ndash;%&gt;
                 <c:if test="${vo.pageNow ne vo.myPages}">
                     <a href="${path}/product?method=findProducts&bid=${vo.query1}&type=${vo.query2}&pageNow=${vo.pageNow+1}" class="pn_prev">&lt;&lt;上一页 </a>
                     <a href="#" class="pn_next">下一页&gt;&gt;</a>
                 </c:if>
-                <%--不允许点击下一页--%>
+                &lt;%&ndash;不允许点击下一页&ndash;%&gt;
                 <c:if test="${vo.pageNow eq vo.myPages}">
 
                     <a href="#" class="pn_next">下一页&gt;&gt;</a>
@@ -246,7 +242,7 @@
 
 
 
-    </c:if>
+    </c:if>--%>
 
 
 </div>

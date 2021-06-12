@@ -180,10 +180,10 @@
                             <li class="item-seckill">
                                 <a href="${path}/product?method=findProductByCid&cid=${product.cid}" class="seckill_box"></a>
                                 <div class="item-box">
-									<span class="img-con"><img src="${product.carImg}"/></span>
+									<span class="img-con"><img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}"/></span>
                                     <span class="pro-con">
 										<span title="奔驰C200L" class="name">${product.type}</span>
-										<span class="desc">奔驰</span>
+										<span class="desc">品牌</span>
 										<span class="price">${product.price}元
 											<del>24999元</del>
 										</span>
@@ -191,6 +191,8 @@
 									</span>
                                 </div>
                             </li>
+
+
                         </c:forEach>
                     </ul>
                 </div>
@@ -204,7 +206,7 @@
                             <li class="item-seckill">
                                 <a href="${path}/product?method=findProductByCid&cid=${product.cid}" class="seckill_box"></a>
                                 <div class="item-box">
-									<span class="img-con"><img src="${product.carImg}"/></span>
+									<span class="img-con"><img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}"/></span>
                                     <span class="pro-con">
 										<span  class="name">${product.type}</span>
 										<span class="desc">宝马</span>
@@ -287,16 +289,16 @@
 <script src = "js/firstPage.js"></script>
 
 <script type="text/javascript">
-    var hour = document.querySelector('.hour');
+    /*var hour = document.querySelector('.hour');
     var minute = document.querySelector('.minute');
     var second = document.querySelector('.second');
     var inputTime = new Date('2022-6-11 00:00:00')
     console.log(inputTime);
     countDown();
 
-    setInterval(countDown, 1000);
+    setInterval(countDown, 1000);*/
 
-    function countDown() {
+    /*function countDown() {
         var nowTime = new Date();
         var times = (inputTime - nowTime) / 1000;
         var h = parseInt(times / 60 / 60 % 24);
@@ -309,7 +311,7 @@
         s = s < 10 ? '0' + s : s;
         second.innerHTML = s;
     }
-
+*/
 
 
     var slidebar = document.querySelector(".seckill-banner");

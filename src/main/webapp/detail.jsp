@@ -165,7 +165,7 @@
         <!-- 预览区域 -->
         <div class="preview_wrap fl">
             <div class="preview_img">
-                <img src="${product.carImg}" alt="">
+                <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
             </div>
 
             <div class="preview_list">
@@ -173,20 +173,21 @@
                 <a href="#" class="arrow_next"></a>
                 <ul class="list_item">
                     <li>
-                        <img src="${product.carImg}" alt="">
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    </li>
+                    <li>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    </li>
+                    <li>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    </li>
+                    <li>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
                     </li>
                     <li class="current">
-                        <img src="${product.carImg}" alt="">
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
                     </li>
-                    <li>
-                        <img src="${product.carImg}" alt="">
-                    </li>
-                    <li>
-                        <img src="${product.carImg}" alt="">
-                    </li>
-                    <li>
-                        <img src="${product.carImg}" alt="">
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -259,7 +260,7 @@
 
 
     <!-- 产品细节模块 product_detail	 -->
-    <%--<div class="product_detail clearfix">
+    <div class="product_detail clearfix">
         <!-- aside -->
         <div class="aside fl">
             <div class="tab_list">
@@ -272,46 +273,24 @@
 
                 <ul>
                     <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                        <h5>123123</h5>
                         <div class="aside_price">¥19</div>
                         <a href="#" class="as_addcar">加入购物车</a>
                     </li>
                     <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                        <h5>123123</h5>
                         <div class="aside_price">¥19</div>
                         <a href="#" class="as_addcar">加入购物车</a>
                     </li>
-                    <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
-                        <div class="aside_price">¥19</div>
-                        <a href="#" class="as_addcar">加入购物车</a>
-                    </li>
-                    <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
-                        <div class="aside_price">¥19</div>
-                        <a href="#" class="as_addcar">加入购物车</a>
-                    </li>
-                    <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
-                        <div class="aside_price">¥19</div>
-                        <a href="#" class="as_addcar">加入购物车</a>
-                    </li>
-                    <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
-                        <div class="aside_price">¥19</div>
-                        <a href="#" class="as_addcar">加入购物车</a>
-                    </li>
+
+
 
 
                 </ul>
             </div>
-        </div>--%>
+        </div>
         <!-- detail -->
         <div class="detail fr">
             <div class="detail_tab_list">
@@ -327,27 +306,28 @@
                 <div class="item">
                     <ul class="item_info">
 
-                        <%--<li>分辨率：1920*1080(FHD)</li>
-                        <li>后置摄像头：1200万像素</li>
-                        <li>前置摄像头：500万像素</li>
-                        <li>核      数：其他</li>
-                        <li>频      率：以官网信息为准</li>
-                        <li>品牌： Apple ♥关注</li>
-                        <li>商品名称：APPLEiPhone 6s Plus</li>
-                        <li>商品编号：1861098</li>
-                        <li>商品毛重：0.51kg</li>
-                        <li>商品产地：中国大陆</li>
-                        <li>热点：指纹识别，Apple Pay，金属机身，拍照神器</li>
-                        <li>系统：苹果（IOS）</li>
-                        <li>像素：1000-1600万</li>
-                        <li>机身内存：64GB</li>--%>
+                        <li>能源类型：汽油</li>
+                        <li>上市时间：2020.04</li>
+                        <li>发动机：2.0T 190马力 L4</li>
+                        <li>最大功率(kW)：140(190Ps)</li>
+                        <li>最大扭矩(N*m)：320</li>
+                        <li>变速箱： 7档双离合</li>
+                        <li>长X宽X高(mm)：4858X1847X1439</li>
+                        <li>车身结构：4门5座三厢车</li>
+                        <li>最高车速(Km/h)：230</li>
+                        <li>官方百公里加速时间(s)：7.9</li>
+                        <li>工信部百公里油耗(L)：6.2</li>
+                        <li>座位数(个)：5</li>
+                        <li>邮箱容积(L)：56.0</li>
+                        <li>进气形式：涡轮增压</li>
                     </ul>
                     <p>
                         <a href="#" class="more">查看更多参数</a>
                     </p>
-                    <img src="${product.carImg}" alt="">
-                    <img src="${product.carImg}" alt="">
-                    <img src="${product.carImg}" alt="">
+                    <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+
 
                 </div>
                 <!--

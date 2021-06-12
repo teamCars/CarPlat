@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class ProductServlet extends BaseServlet {
 
     //展示首页
     public void active(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         //活动数据
         List<Product> coldProducts = productService.findColdProducts();
 
@@ -41,28 +43,19 @@ public class ProductServlet extends BaseServlet {
 
     //通过品牌类别和商品型号的分页查询列表
     public void findProducts(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String bid = request.getParameter("bid");
         String name = request.getParameter("type");
         String page = request.getParameter("pageNow");
 
-        //通过bid查询type,并且放至请求域，供导航条使用
-        if (bid != null && !bid.equals("")) {
-            String bname = brandService.findBname(bid);
-            if (bname != null) {
-                request.setAttribute("bname", bname);
-            }
-        }
-
-        //搜索时的车辆型号
-        String type = "";
-        if (name == null) {
-            type = "";
-        } else {
-            type = name;
+        if(name!=null && !name.equals("")){
+            List<Product> list = productService.findProducts(name);
+            request.getSession().setAttribute("list",list);
+            response.sendRedirect("search.jsp");
         }
 
 
-        //分页的当前页码
+
+
+       /* //分页的当前页码
         int pageNow = 1;
         if (page == null) {
             pageNow = 1;
@@ -77,7 +70,7 @@ public class ProductServlet extends BaseServlet {
         //足迹
 
         //请求转发
-        request.getRequestDispatcher("search.jsp").forward(request,response);
+        request.getRequestDispatcher("search.jsp").forward(request,response);*/
     }
 
     //通过车辆编号查询车辆信息

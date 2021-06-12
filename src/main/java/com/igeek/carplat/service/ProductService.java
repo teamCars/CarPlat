@@ -52,24 +52,10 @@ public class ProductService {
     }
 
     //根据商品类别和商品名称模糊查询，分页查询
-    public PageVo<Product> findProducts(String bid,String type,Integer pageNow){
+    public List<Product> findProducts(String name){
         try {
-            //查询总记录数
-            int myCounts = dao.selectValue(bid, bid).intValue();
-
-            //计算总记录数
-            int myPages = (int)(myCounts%9==0?myCounts/9:Math.ceil(myCounts/9.0));
-
-            //计算每页起始值
-            int begin = (pageNow-1)*9;
-
-            //查询记录列表
-            List<Product> list = dao.selectAll(bid, type, begin);
-
-            //封装PageVO对象
-            PageVo<Product> vo = new PageVo<>(pageNow,myCounts,myPages,bid,type,list);
-
-            return vo;
+            List<Product> list = dao.selectAll(name);
+            return list;
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
