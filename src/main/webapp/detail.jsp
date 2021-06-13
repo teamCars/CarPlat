@@ -248,11 +248,17 @@
                 </dl>--%>
                 <div class="choose_btns">
                     <div class="choose_amount">
-                        <input type="text" value="1">
-                        <a href="javascript:;" class="add">+</a>
+                        <input id="quantity" name="quantity" type="text" value="1"> <%--数量框--%>
+                        <a href="javascript:;" class="add">+</a>    <%--怎么把加减填进数量框起作用？--%>
                         <a href="javascript:;" class="reduce">-</a>
                     </div>
-                    <a href="#" class="addcar">加入购物车</a>
+                    <input class="addcar" value="加入购物车" type="button" onclick="addCart()">
+                    <script>
+                        function addCart() {
+                            var buyNum=$("#quantity").val();
+                            window.location.href="${path}/cart?method=addCart&cid=${product.cid}&buyNum="+buyNum;
+                        }
+                    </script>
                 </div>
             </div>
         </div>
