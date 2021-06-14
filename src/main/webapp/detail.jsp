@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 半糖去冰
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="path" scope="session" value="${pageContext.request.contextPath}"></c:set>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -152,18 +154,18 @@
 <!-- 详情页内容部分	 -->
 <div class="de_container w" style = "padding-top:100px;font-size:12px" >
     <!-- 面包屑导航 -->
-    <div class="crumb_wrap">
+    <%--<div class="crumb_wrap">
         <a href="#">手机、数码、通讯</a>
         〉  <a href="#">手机   </a>
         〉  <a href="#">Apple苹果   </a>
         〉  <a href="#">iphone 6S Plus系类</a>
-    </div>
+    </div>--%>
     <!-- 产品介绍模块 -->
     <div class="product_intro clearfix">
         <!-- 预览区域 -->
         <div class="preview_wrap fl">
             <div class="preview_img">
-                <img src="img/detail/s3.png" alt="">
+                <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
             </div>
 
             <div class="preview_list">
@@ -171,44 +173,43 @@
                 <a href="#" class="arrow_next"></a>
                 <ul class="list_item">
                     <li>
-                        <img src="img/detail/pre.jpg" alt="">
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    </li>
+                    <li>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    </li>
+                    <li>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    </li>
+                    <li>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
                     </li>
                     <li class="current">
-                        <img src="img/detail/pre.jpg" alt="">
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
                     </li>
-                    <li>
-                        <img src="img/detail/pre.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/detail/pre.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/detail/pre.jpg" alt="">
-                    </li>
+
                 </ul>
             </div>
         </div>
         <!-- 产品详细信息 -->
         <div class="itemInfo_wrap fr">
             <div class="sku_name">
-                Apple iPhone 6s（A1700）64G玫瑰金色 移动通信电信4G手机
+                ${product.type}
             </div>
             <div class="news">
-                推荐选择下方[移动优惠购],手机套餐齐搞定,不用换号,每月还有花费返
+                推荐选择下方...
             </div>
             <div class="summary">
                 <dl class="summary_price" style= "width: 660px;">
                     <dt>价格</dt>
                     <dd>
-                        <i class="price">￥5299.00 </i>
+                        <i class="price">${product.price} </i>
 
-                        <a href="#">降价通知</a>
 
-                        <div class="remark">累计评价612188</div>
 
                     </dd>
                 </dl>
-                <dl class="summary_promotion" style= "width: 660px;">
+                <%--<dl class="summary_promotion" style= "width: 660px;">
                     <dt>促销</dt>
                     <dd>
                         <em>加购价</em>
@@ -244,14 +245,20 @@
                         <a href="javascript:;">移动优惠购</a>
                         <a href="javascript:;">电信优惠购</a>
                     </dd>
-                </dl>
+                </dl>--%>
                 <div class="choose_btns">
                     <div class="choose_amount">
-                        <input type="text" value="1">
-                        <a href="javascript:;" class="add">+</a>
+                        <input id="quantity" name="quantity" type="text" value="1"> <%--数量框--%>
+                        <a href="javascript:;" class="add">+</a>    <%--怎么把加减填进数量框起作用？--%>
                         <a href="javascript:;" class="reduce">-</a>
                     </div>
-                    <a href="#" class="addcar">加入购物车</a>
+                    <input class="addcar" value="加入购物车" type="button" onclick="addCart()">
+                    <script>
+                        function addCart() {
+                            var buyNum=$("#quantity").val();
+                            window.location.href="${path}/cart?method=addCart&cid=${product.cid}&buyNum="+buyNum;
+                        }
+                    </script>
                 </div>
             </div>
         </div>
@@ -272,41 +279,19 @@
 
                 <ul>
                     <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                        <h5>123123</h5>
                         <div class="aside_price">¥19</div>
                         <a href="#" class="as_addcar">加入购物车</a>
                     </li>
                     <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                        <h5>123123</h5>
                         <div class="aside_price">¥19</div>
                         <a href="#" class="as_addcar">加入购物车</a>
                     </li>
-                    <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
-                        <div class="aside_price">¥19</div>
-                        <a href="#" class="as_addcar">加入购物车</a>
-                    </li>
-                    <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
-                        <div class="aside_price">¥19</div>
-                        <a href="#" class="as_addcar">加入购物车</a>
-                    </li>
-                    <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
-                        <div class="aside_price">¥19</div>
-                        <a href="#" class="as_addcar">加入购物车</a>
-                    </li>
-                    <li>
-                        <img src="img/detail/aside_img.jpg" alt="">
-                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
-                        <div class="aside_price">¥19</div>
-                        <a href="#" class="as_addcar">加入购物车</a>
-                    </li>
+
+
 
 
                 </ul>
@@ -317,36 +302,39 @@
             <div class="detail_tab_list">
                 <ul>
                     <li class="current">商品介绍</li>
-                    <li>规格与包装</li>
+                    <%--<li>规格与包装</li>
                     <li>售后保障</li>
                     <li>商品评价（50000）</li>
-                    <li>手机社区</li>
+                    <li>手机社区</li>--%>
                 </ul>
             </div>
             <div class="detail_tab_con">
                 <div class="item">
                     <ul class="item_info">
-                        <li>分辨率：1920*1080(FHD)</li>
-                        <li>后置摄像头：1200万像素</li>
-                        <li>前置摄像头：500万像素</li>
-                        <li>核      数：其他</li>
-                        <li>频      率：以官网信息为准</li>
-                        <li>品牌： Apple ♥关注</li>
-                        <li>商品名称：APPLEiPhone 6s Plus</li>
-                        <li>商品编号：1861098</li>
-                        <li>商品毛重：0.51kg</li>
-                        <li>商品产地：中国大陆</li>
-                        <li>热点：指纹识别，Apple Pay，金属机身，拍照神器</li>
-                        <li>系统：苹果（IOS）</li>
-                        <li>像素：1000-1600万</li>
-                        <li>机身内存：64GB</li>
+
+                        <li>能源类型：汽油</li>
+                        <li>上市时间：2020.04</li>
+                        <li>发动机：2.0T 190马力 L4</li>
+                        <li>最大功率(kW)：140(190Ps)</li>
+                        <li>最大扭矩(N*m)：320</li>
+                        <li>变速箱： 7档双离合</li>
+                        <li>长X宽X高(mm)：4858X1847X1439</li>
+                        <li>车身结构：4门5座三厢车</li>
+                        <li>最高车速(Km/h)：230</li>
+                        <li>官方百公里加速时间(s)：7.9</li>
+                        <li>工信部百公里油耗(L)：6.2</li>
+                        <li>座位数(个)：5</li>
+                        <li>邮箱容积(L)：56.0</li>
+                        <li>进气形式：涡轮增压</li>
                     </ul>
                     <p>
                         <a href="#" class="more">查看更多参数</a>
                     </p>
-                    <img src="img/detail/detail_img1.jpg" alt="">
-                    <img src="img/detail/detail_img1.jpg" alt="">
-                    <img src="img/detail/detail_img1.jpg" alt="">
+                    <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+                    <img src="http://quf7ft80k.hn-bkt.clouddn.com/${product.carImg}" alt="">
+
+
                 </div>
                 <!--
                 <div class="item">规格与包装</div>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 半糖去冰
@@ -86,10 +87,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: 600;background-color: transparent;"><span id="citynow">上海</span> <span class="caret"></span></a>
                             <ul class="dropdown-menu" style="padding:25px 20px 10px 25px">
 
-                                <!--<p class="nav-left_city-choose-des">在重庆、长春、成都、武汉、长沙、西安、昆明、苏州、青岛、厦门、大连、常州、东莞、郑州、南通、洛阳、连云港、佛山、无锡、上饶、福州、镇江、扬州、泰州、石家庄、昆山、义乌、金华、大理、丽江、腾冲、沈阳、太原、天津、南宁、宁波、南昌、济南、三亚、徐州、宿迁、淮安、盐城、台州、温州、合肥、海口、哈尔滨、呼和浩特、齐齐哈尔、威海等城市租车时，请先下载我们的APP：</p>
-                          <div class="nav-left_city-choose-qrcode">
-                              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODY2QTY2OTNDMDBEMTFFOTk4RUFDMDhFQjFENTZDMzYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODY2QTY2OTRDMDBEMTFFOTk4RUFDMDhFQjFENTZDMzYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4NjZBNjY5MUMwMEQxMUU5OThFQUMwOEVCMUQ1NkMzNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4NjZBNjY5MkMwMEQxMUU5OThFQUMwOEVCMUQ1NkMzNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjVx3SoAAAMAUExURTk5OUfrjBISEmtrawDIbDIyMgrUfsbGxgvSgyLhfZSUlBPMjPPz8zvsgUJCQhrRi/b29tnZ2THkgyEhIS3hhejo6KWlpbm5uVXbqeDg4AAAACoqKgC9Yt386aGhoWjYvdzc3AC2gsLCwhzefa6urr6+vtLS0mFhYXh4eOTk5LS0tExMTAXTfgDRazPsegLOgRXbfvX9+hrImBHVg7GxsfT09HrkugTAkUzYn4LnvOr89Pj4+KqqqlZWVivUkSLYiV1dXZmZmY2NjQnOhQTOgn9/fwkJCcrKyirdic3NzYaGhqnu0gbRgQHBjpvrycr14nV1dQbNhbX01N7e3s7Ozvr+/ADLdCrmewHMe1lZWSrfhRoaGpKSkh3ZhNbW1ov2sgHEcuX684mJiVFRUTboggnDkZ2dnTTbkwzHj2JiYjvvfXFxcRPYgGVlZUVFRSzudCHahRzqbPDw8EryhD8/P2LfrDDwcP///CbdhgC8i7nw2gLTd1RUVFnjpaPtz7Px1zLVlfz//iPUkIODgywsLCLLmz3UlQ/JjQ3LfvD99wUFBRjagTDKpUHkkQ3YeiPvaNH16T/glADLXjPhi1DwjcHz3v///x7WiivZkCgoKN357y/pfGX1lWrksXt7e5Lnxbbu1pn4uTbdjg3ddRjVgx3Sj+X97wbFjiXbh332pwPGiiHegwLKhtb460XzfxLLgAHOhP/9/h7ahPHx8wTLhgTCjwDCiyfkfibfhB7ffgHYbirwbzjfkhncfv7+/oCAgPv7+729vZ6enqmpqe3t7dXV1fz8/IGBgfr6+u7u7qioqNTU1Ly8vP39/ezs7O/v75+fn/7////+/+3t6/7+/6qqp1bvkjjliC8vLyTXhvv//AvTc/7++/j7+q7w1+vu7erq6qSkpCUlJfHv8o34sADFh+fl5QDLgPHz8g/Jkf///fTx9SjQmfH08w/Xf9fc2xTedx7wY+7u7JGRko7qwJ71wz/piHTcxDbwd/f49xrchA8PD+7s7wvhbZLsxfX19UW4HIsAABxVSURBVHja7Fx7fBvFnRdyZCeuETYmdmyD67pW5MQJ5B2ILRI7loLTQBNsUowb1cTFrUgwkLqFXnK87PZAlLa8FhKK+0pKWq4lvMrjykiyJFuybDkO9C7H9XpJjktzuZ7vwR2Hz3fn+/1mZ3ZnV7trEe6Pfj6XAUer2dmZr34z85vfc23SH3ixnQd4HuB5gOcB/iEAJJZfM6qJ+I1IWT2su02yBkjYf7OBzuzaHB6x7Ew7ngAwWJ5RfHa7XDttC9NnC8droa49tic8Xmy326uxciY5nhcM2juqzownaYklk22+oK+jSJISyfF6QuDf+aegecPLsfFa6K13SpLCtulgeXDaPp05annQXmwEsNyqVIRZqxB88cAvjNnhIsJ+cxx+hq9KIEWVD4ZJCWShzaNwH593AonCFVbDTZ8rQMIASlISRxxllX4AGGxVZ0gqQ4BxYf5o8xH2A51QZQ3Q/vEo2A6fhThiHqtciE0WCQRbpACUFx2ZweYNHwcgoQCbItoyiv9sRYBDAkC70+m04eJ0wMX78OxqVyRS2gVfSuFLKd7FleRnPbdBRS82HyEcoCQD3AoDwKMueRw2ZJMVBfOMNnIJpyBhADXlNk6nDvjSCJ+NfKnH2Yos5U2jkgpwCAGWGDGHPCuAEc2WZ1eDCDAhrEFNyWGNp4rhy1HWnAGU+4jwpg2SjoKDRqwoMhvADJY1qKxB2ADDxgCJSkEOsLxMGJGWxfBlZyZAdSzCf48VQFI97A1BGYY/byglAqwMKcVb61MBkhPDcmWoDYY4igMMyN9Dm2BEFwfogbpekc0gwBQdzEtbe6uzoWCtSJ9KFSCRcOmH2M8dsgsUpLv4hKSuiFPYCue8SaQgLxoKnhTv1GYDULPKGkQKOuFimK2YtAiQM2rCARZPMUaSD1WjmQCJCjAq3gmRjwpwRABIEKCXrZlCBSAR+CAirITrjkKJJJCC+WxbmlNQA9CbDQU12yBqRMFkS1uLa1qhIJHKHA6HrbQFSltLSz58qauHRbAPLpqgrtES4Ih4Z5h8jCkmFGBI32eOLHuQwmJW4RY5QY7ROfHxKEhClhTMBCjyQQ5QEZhMAJquwWym2GsKsJf9xgyAiGeGAwwQVWgwBtgrUrBBM8UfZxePST3BYLAPxm2ATyon4mfOUDg8BFgKT7FKN3xPhKEQwgAGWSlnX3pMKdh37hREDGXxePwEdP5yKuXPw00ymPL7myoqKupwj1f54/EulOUq5HK8ilHQloLn4v5UvAcJnvKn4IhRGDX5v1yDorxO2Qwy/nxke/wgvE18NsU2SQ8/zdopjeiWMtnFlmvQRwHqxAENQDYOXV0xLrDmc2EMB3aLgnucTbGTyYSSR2bFOPWSMQUtAfIRB8QnTuqEBaVM4e8B8U9qEigoBcRnF0IFkpSPMdYlHJUKBUvERwZmA4hrMBWNjkRHGqJR/CzTUhA2iEcuG07C/fm49OCzlAgU7IWKBni84WWoaIMv+dA8UIBHCnwJwZc+EeCiKC8wZsoKIG4yl5HAqpliLkr46g30UwrwNp3iSKpxvtPs2zAjKRVYu42Gy1oezABIJIEJ2eURiVbRdcuMmih3lBFj7DeEDOVBsYyaACRU5DfS+0cUnYSoe9yeJAaKd0B31KkUrCeqyqAAHDECSEV+YrKLtw5mlqMBPsWl3YOD3oDb3ctIQkrhNqoxycruwZNnVApKZyrhuXEcDVo0ud3u2xqPDg626nWSgMFwg1utNom12mlj8sYqPsU2pjRRcatKAFhF+SDb1ja+6Uu44s4paK52knMCyIQFyrooBZ2iwNrKpjggCYp7DsPDLQv0nELG+NEVd2IJsDjBCDYAKwlZlw8oSHrZplUk6g1QsYFTcKEk80GUDWaQgjXCLk6c+sgUtFVYlDo8i91wkY9rET5teyS5oo+oIr80ABXIbBc58CyGO31Q4YnHU5ts+ysqGuG0DkGFG37TWJ3VcDajNVgPUkiYFiqLsOtwYojW4E8agsoxPBKorIIV0HJMnGK8Q489fGyMPhIOj4IAY58PF+1wEQrLwo+EoyTCYWVE7bXRFO8hykFrbI4kiqVFPPOIoDQpDFvsiKqddtjSxCNvMiJpnxdHIhYW1piuVSZaQgwtlERKieY3FQF7ysUZtUdRurIw42YCHDdoSoTfSCQBurbrFGUzxIAoytEQIzLAzcb2WlOIwhRzgEinIieUHvjDw3mxk5U2VCqduvJ5qETrlgs0TWknVOxkWtSQG76sguuICLAYKrfqcZX1sM4qZwGoTOgmvt9LBHMVFcZqTa1b+NfOrIdUoGKWBT7FsjxYLshfCtkWiuKW6RRPCSRu0esktESIZGrdkiG6hbNYtiyIwoJHVTu1s+kPCiK/KQXFqzZFoiYCBUslc4Dyk+0yo5b76meWBbQPBpFxdLFHevQoykSJ2sJPQtB+5a2GVdgmivxtIdl4FWo1B8h+3ipqqZLNY167TEHSSi1X1NrlDeHpWAxf+9LwTI2XmbbwiY7ZAIJARGzMwtQi2maIssTMppiIDKpSvJvP7oRxEmuIbB8sZwchJTg9SJGnO1SFgBg6cpKCcUOzBjVEzgSounqIIt9qABJFWCCqSkYNxFyFAaWWUIDejPWmASiLJ5tx1fIBVum9SBm7OKDnjt3i3SZ2o54LC5tFnY8rgVTp2s8pqGGUWoCUgh7QX3g35buo6hRFFaphZD5aKjyedptiwwANqFsiwuEHF4qNugfuwr4aOwFPn9wAX5qgF49IQQTYATe2IsBauBgeoUNFa6wAmpdSts5W8Yo8/ZmHnwrAMlaJu9g3Bbf2iVpziomP7SL5Q1Z+kj2zAoywrhRd22Xk0lQA+vVKk0ej1jMB3CMu8ZCVpymcHUAoNQpAo6O0UuOGYNLMdFpHwfIiRkGP6LrtswIoMYA+u13rg1QqEGBhLBaj2wAq7Yv/5u3YDAc3nkzHsOSLAGegYjG0PIULKGAXyqZYLI1spitJn6LPpmutACYYm6mNpZMuEWB7LBnLCzKAO6Fv3JH2f/qvt9+ugy/05Ac+NuVgI/sEgGQrVNQBBKqknklSJOkk/HPCwZr6RNQ+K4B8DfaJpzdjJFJRkJ3F3Dhn/4f7zx57/9enC+o5Y11dUHCmoKBgNf4DHwUFKBa93JAT7NWLv7h1yP6P7O3kfBB5UZvY2s20Do3ty/6vZ++//8WJYwbyn1zuOvubs/QitYtSWCeln4M7dlzQfDUUBB2HUDWtWmC0vpkXJ6QJ6S7jUAAiCcdjmZE0eg5qJ/7KNhA8QyA4trsio6Uoz3lHI5EmqPDA52gALrCyNxKJLK7LB4TZlXwmjlaPyQLvViK4Y3HNFJfKrl+Qe0ddTVa7mFtPKri4BEcdQb5Bgwj4CdJOTQW/nqBEefey9773xBNPXHDBBY888uivvnQflN///hvfWLHiW5/87g1yr1HV2EgGuF7M3bHI9fsFdYnkWfBBemghQIdo3ukWLQvUKQjt3rafPoZrbPl7X/mzD2+98MIvXnzJTa+vf+qOO9YfvOgTf/Ll515d+/VP3fLJ5e9gz6f17lgiWFgbBOMeUZRAI2lmnK11r0jBxczdVywC7IJ2CflHvvtTCg/wAcD16y+5+KbD659ChLfcshYgLrhBceazzkKcgsXMe6v0zleuKQV35stlOCcnZyt8fh4lyABc9EFF3xgDaIMvtVC501eAD/3wOxSejO+aLyIdOcK1APFT/4HbvIDzK3guBM9/HmCMYa94lrdh78iRomz8nTi+0VnsE8TuuLilNnCJjwpjhB91q+HqJx9eruK75NYLGcKLPsFp+PUDyKB1ZnJi4NaXxS2qUhGTyCO72gVp0fJBJqNxcVZe9GgP/MKdCI/h+8WFFz7zudcuvuma9RfxSV77qU8KFJTVIpKpXlNIDsFRRqysWxl8UFEsezQAC6Dqz5+R4QHZrvnF7Xfe+cwXX/vnN78tAPz6t/QA9QKQAtZhpJQaWbdC8XhqMTczoZDQlYrH/egpsjGXMwIMnkIp4YKLZXiA7/Y7L/jC9Zetu+z6q350Y/NFn/gybuS1a69d8Y5EZgS7FeoAM9hhPZvJl/0pP7qi/Lit7cz2ZQgwLJuxhkLBYNDBTVz79L42L6Og/QR288jFFN/dd6//79v/nXE96YbrXuj8ewrwVQBIjQzovhuC/8NDuNlc0JePS4sNmt657csI4BBR7fjHRUW3XO8LogD3IBd8BKl30+HD65d+8BO1p4mbv9l5yy3PvQrllyvEaSSqsabczypG9N5O7bGoO4txAQ8zRk1beYwAYp/Tf4tIHn39ppvuPnzH4aWPL9esnLH7Op9b++qr115LKaiTZGSAKVbToPd2murFpwsLCwlsWGTUx+G6cIwBDPqgqABB34bvHafxmV/dfTfgW5+buw6/PXnV9cdYZw89uP25tdfqAHIrmQuen/YzOlGAfISBmcLCeuM1SKRiKHmMgj64PlXF7D37qqqqSoMCBQuqWlvbjs/A7V/dcfjwHTt2LL0Hu/jjx/7qsSvvh4tjV3312GfmbPnZWj1ANlQhdNjKceB0FBdBDd0kMG67GQW5/Sok6P4U4G1cYGWbhHZc4FstnZW+9NIdgG/v01jzP4/ds/z6x9agiPPC1S9KV29vRoQr9HGVRLDCcg2sX5JUNtNrZlnQe9yDfiJbbd3MyCsuYylmR0b99I4dL+14aukarPnLR6WJia/eCFc3d14HVOzc1vyza3+poyDRmUEJBUiFBYcQcmFBQaK6Y5GCddRcBUJnUGt/IungP0L10w/v2LHj4N57gWwP7f03qF9wNfxzT+eBY9IfbT/yyis/++UKYwuqSqMMgD3EAiDqkW2DR9Ej1V2J29rVPXh0szvg3iduEmpqKvlr2MVXH3xpx0uTc38O6+7epQeWf/bJBxd8d5204EG4daD5d9u2vfJ3KwRIjW63G20pcTf0iH/VHOCQALAD7uXM4u0konGaVOrZDC1ncbE9MBemOPfgzXD9bK503Zwrjvzu0u9PvLAANvO6uQBw258eEohWx2xnSkBhIweYEACWW4UEjGqPR0ljy9CbGEGifmDjwedf2p0LFLzr4AJp3WcXPPjkkw8d6MRNfaD5RgD4yiFhujyC05+WQaM1WD6bx11cJSTD4DfAcb8DKhMA3PjS8zv23gsEW3odKFD3XQmV3++8Ge7DGty4ZWPzAxOq+NLFznIlmKtR3MX7swFI12B39+AqXumC9bg54A5Q620PW0MIv76kXga48fnXl14FG2M7SH4TDy6QpPuvfAFbXDUH8M3d8gBKz9TN2n10KzwfOir7Z3EVBqoZH+zohrs5rBZLjhUF0fywny/AOuYdpLs4TyBvOlgAPPmBbRtf2fj6j5+ekL7ZifVrLv3t8nsuXYPnyX3b50LJhVuKuFUjiPxKUSxRcUNniU4e5HzQIS4bQXFXW8fsKPIf2rYRED7/5meOfZXywokrL+28FKdZ+u2cLXPnrlw5+TQGCQv25JDA6egWVAC2GDIkk7CUfs7oPcyGWhVUrW30TtqHcRyHmnGnbty77CHeyw/W/AA/lh/cvnJycuXu3ddAKy7y14zJAHtF6UYBmCKS1qGlp2AFnsVw6334rOMeQXYWt9KzGOEnq1qr0NI67kCB9VAzlG1Hts35kVaJv+HROSsnd+9++OG3HkcBtVgu3XDiDutPW0XcWgV3Y1bSzKLCKSrA1BeiRCFMsSLNIAX74BoX5TtoMpUOXdFMyytzvnmz0Ou6R5bm7t69+6233pj3FzRccwalo8J2eDZUODVTLx4piriFo/RZrEFqAs5YpR6dAZOgMLYPV9vZibNk4tARGWDzkTkvXHc/f+i6t95cuXvZwwBv3rwPBMenJ8MTQgwCHCWzo67eyPmoB0ilRTSKHjv7DojUFx1hJGze1tl59Zp7f77uwL1XPf7mj/9z8uG3Pv3GvNc+97kPhN48QpCugkMfP0hMN4nGNMWd3+2ixoAA++Aa1xC5C5tefWPzFXI50nzF9jnbl6zM3fvmm689P7nsrU8jvGduf4JtBowp3Me0DqrucNe9JnaL6iQavTnTV0c/41wJawSNC3WuVZzNpEHBWwRtjv0GWz7beYVStmzZsmTJ3m8ve+O1NwAfku+Zyy+/8wvMOmpjKqK9X+64H8VhDHHo0JjdqFZnopOI/izFHVvD2EFVUIn0F73bB268sblZnmWAlzu5Gyj32rzJ3Rzf1z5kulTap1duUCfZYGQbtJmpnSLQFtWZKLdWGTWj/8QE7omJNXOWbJFLbm7u5CRujDcmJym+yy+/9cN/+eFZuYOkPuiF+kncJjHCxhQUTRGb9L66MvUkkZsdOya9iAz5j7fvBWhLcrEAAd+Ytyx3EtbfPKDfrV/7zk/fZU+kMzKmylhUjQEFTbPCCLMlE+kEt26hOzYvJyenXTzqWtD+BHwaj9zlz65cuncJLYBw2bLcJd9etuzTiO/27/ziPUUZnerO15Vd0AnqSQ64HsDea62tW9QErGUBFYyCjTpHDjkpBgTe8PNnv/SUXNYfXg9/11zy+MUffPDBV7733mXvGoZoyJ88qlkRRYpmsbCSKV38isbCygDKd0a4b0sRXbO0VgvammJE9/AV3kKs4welmL6nYrqLiSqwVgs5RHIEJjHMRcyMLCT6zEA1ba2Lh3ptYgObWlhXRUZHWdQiKYhEIqUep9OZj1lQPAJlcDQSacUMFriuWxxpW63ztZuEDyHgRHUk4sKMk1b4bON+kgpnjzMHOo1iWEqRfDfSDdddZllhpWJYShHz//EwDhrsNsCGx3C2YE70NPUpiWX1lNHkpln8oMSt/GHZyk/oUXeKz9oAC5azVDsRQQt3BjKBVSaLU9CLk6bRfAEjgMlpXVZYmAfZcrWTSGreorFtplzR6iSykCvuMgWJ6gvtY63PWAA0cIztQYANLCijVx/Lr0Rp87uWFESHa7Xdbu/wMw/qbVAxzgHWoscymYxV2TXZooK3ckM6lh4Xl2QCnmjFXNVKeDYEn11EygRI9sRiabxbl07GklaKOzpcbTHoC9X9Aui8ESvCgjeZFpFo++enZY9vO2vhEBci/triKri7AS5C8PPOSAYAJad8N43uZdPsWBe3D4p8gqZ5WfrjKzjB+NlVvFoX/TZ9RiewMoCC4n6cGVZcVoHeo1qtTmZZR/WusEyAbJGrcSaF+tByHrMwTAR37CARNokjm4wcrtVViIy3Ue8KM8+d5RQ8JW4QDPT2nZA08YOExsZVsgCIYm762GwV6M03SSo6Em1kKQWePGCzrdHoSCl3hXkaRqK7FDtINBrlYeCJHGjOD1jfPo9acqDDmnqmw/bTZAMQS0rh2a0YMzPCekeAFVDROxsFiegKO6kPudjMPKhK3Ew3y9cpNOU7Nj4ZHtXZRZTQ/y5++MxmPCJiIIwmPE8DMCTq2hGe8AIUnDINjHbyo1iJH+SnspvloxMpG+uWcmCLEvVikYI9bJ8p6ZibWBzPcRzjlAUF5ZNsgzZ+kNAlu4HonInlVmvQHQqFXCIFPTwddjgU8hYzCmJCK82OheZeNC/ZvaHQAE5xF1R0sexYGj9YJyfJygGEXIAp9vbJNXTZhXh4Ik+8hb+dVjnutUSgYLmRI4e6agyX3Aj3K3CH+CCTQLMoRYavjjB4z4ImfjCjDLNI6bQhwKNE3jXFM7oY1ixKi+KrMD6LybQQibvJtBsvi8Wr9xndLeHZsVyoN8yONS4LRZXWCGCXGstMipxGxc5MuPNpWAqrxL3hw/cA0IQZV8SF8m1X6ags8O6MuCJNHEI/C2uxi532s+edJaP0ZQGjLVZRwBmiuUZ25w5tKvLPsCaN3MZcLDjoF/EMGE1uJ8awbua7mNsBa8QYDkVxJwbyoKg/EAPRXY5ZUPzFSdZW4YNidix/lYY2fbdByMhRes/wkzhnNR5JJhQkTo2/mIcVobiFizIDoF9PQSMTsFaaKbcS+dUUErEMJWRjlCTECFOA81mD/GAw2D+VCJ9RsmPRYowAF4bDCU12rPieBZpPQpgOSwVWG2tl6gqbJSOHxcYNc6vtfnZnV9yfKu2vqDjuYtmxnILlp+Au7itbPEVDHuJnGECEMIQZOTXMPoieJtIal7Noy8ymeNqKBygCq1dvc8Qcd6rXLhqTs2MVgOXqyUaU9a0oTaeY0jTCk4OJodqa9dtSElxYgGnJyNBWMnLcTMcq8+lS2hWqhIxy3OkaHFNcW9K5AAwrWWG6hNZdzFnrm88Mfh5uKijXeqjloTczgErs1ghjUyQjTUnPZoJmmYluMTMRk16qZNfW4CC1DrgD7i58Ic6+gNu9GVMVQfo8cxLuo3VsA2YmBtyBQID5uRxM3BqrgRZFQDFcL9OyA0x20u40meKxaePXuRC+zwy03R49oSvVhCsiMdWcGL4IQiFU1Fg6s3CFWafvapZwhpIyKLRJmAoLGttB1ES+Nd7FEU12hggwYfTuKVsGBYVWCTlliGQC7BH36ypT+porTXLAP80vKBPfEuAaAY2J1kcbatBd1Ac6Di6qaa4j7cRn4O5iYJtju+RkA+LSQ+hXBoCiaGCYm1AxG8CIPse9RJxikWC+NGUJhAoLFZxwXKjvKBQMllnKg35hj1sCHDZ7W4pmydnTwlmsvLIpoFHcxVCt2Usb0Z7UplNs/a4PBSA3yL6P50yC4XGrFFQjZKqzA7iJJ/fORkHzN1U4mS+og1KQMd8S+aQmylsC8E0VPfUM3fyU3x+Fiv3IZTv65cNZPjyZ64m/2KIizsKyzAASHthjTUHvWIK611hWvexvS/CDwi2/6wMzZOVDKwfEEydISfMRWAnc4D8fZZ0wNt83hBm4CTndNpQNBY0B8rO4j0XU2WNGLNOtt7DyDO09diZRD4vpMAFtwgvJbopNXykkv86FiXDTMX2WAWGmAjHEk3CA49OsM6/eFaYBGDr3NajmuBOFgpm5sm79aww4wKRdsFHrKUi0sg45pynGs7iopaUFX72E7zxaKL78o8rmcNgWEROA0w6Ho7cankWin8bXIuHLkXAblcGXRgcrRWwB0ObnANBY65MVbfYaAzX5lIgAy5kSqMnhUFrUCGyGhGYzHpm/byahff+ZNjfarxFY1SQ7ogDUrwhVbh5RLQtEygagNvfwpJaCGRINS2nharCHeQcVSvGTNpjW58VzKU8xlbUQKTuArpB3mJqzvPCXUikok6ya5r7S/NfhEIoSm0IhWrU5SbNjVUsVduDF47sYzVUzAuFa5S68wyj9LoRmOUHhqJsVYAahDF/noiQc0xfiiJpOpYl0pfaoiR/EqkVBFhoVmu0NjkYCq2rll/RbSLGwJgwyEzN9/PzfiE6+JX4OcHg2ChqK/CdFgAOGAIcMMhO1IrK4hPO0AJnamhJ4sKmFVf8OTPp+yq0ijTBpqsLIRj2U55IfaHL2OG16ERndsXhzFBsp5i70k8wfjURG0B17Eu4MM5NX3bmpnRmsyyUYjwo7ROuWXi9OG5oT+UuZ0K1C+sXAKaPAnmCWAImq54wKFFRfTof71Keb4pihQVbwNGWRoT09q2WBs+aomB2bz7ik+PY8UqUDaOJePqqPo7agIJGK7RbFppliXluNJml2V0k+RVtIWYfwLC6occPeS1hnNu7t3Jlh9svqdc9k1hgOg9AKi26IQWK32Ujn3+h9HuB5gOcB/n8H+L8CDABFYu3uOTvZqwAAAABJRU5ErkJggg==" alt="下载 APP">
-                          </div>-->
+
 
                                 <div id="city-button">
                                     <form>
@@ -203,6 +201,13 @@
             <div class="col-md-12 col-sm-12">
                 <h1>购物车</h1>
                 <div class="goods-page">
+                    <c:if test="${empty cart.map}">
+                       <%-- <div style="margin-top: 30px;margin: auto">
+                            <img src="assets/pages/img/products/cart-empty.png">
+                        </div>--%>
+                        <button class="btn btn-default" type="submit">继续购物  <i class="fa fa-shopping-cart"></i></button>
+                    </c:if>
+                    <c:if test="${!empty cart.map}">
                     <div class="goods-data clearfix">
                         <div class="table-wrapper-responsive">
                             <table summary="Shopping cart">
@@ -214,60 +219,35 @@
                                     <th class="goods-page-price">单价</th>
                                     <th class="goods-page-total" colspan="2">总价</th>
                                 </tr>
+
+                                <c:forEach items="${cart.map}" var="entry">
                                 <tr>
-                                    <td class="goods-page-image">
-                                        <a href="javascript:;"><img src="assets/pages/img/products/model3.jpg" alt="Berry Lace Dress"></a>
+                                    <td class="goods-page-image">   <%--图片--%>
+                                        <input type="hidden" name="id" value="${entry.key}">
+                                        <a href="javascript:;"><img src="http://quf7ft80k.hn-bkt.clouddn.com/${entry.value.product.carImg}" alt="${entry.value.product.bid}"></a>
                                     </td>
-                                    <td class="goods-page-description">
-                                        <h3><a href="javascript:;">绿色条纹飘飘裙</a></h3>
-                                        <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                                        <em>More info is here</em>
+                                    <td class="goods-page-description"> <%--商品名--%>
+                                        <h3><a href="javascript:;">${entry.value.product.bid}${entry.value.product.type}<%--绿色条纹飘飘裙--%></a></h3>
                                     </td>
-                                    <td class="goods-page-ref-no">
-                                        javc2133
+                                    <td class="goods-page-ref-no"> <%--商品id--%>
+                                        ${entry.value.product.cid}<%--javc2133--%>
                                     </td>
-                                    <td class="goods-page-quantity">
+                                    <td class="goods-page-quantity">    <%--数量--%>
                                         <div class="product-quantity">
-                                            <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
+                                            <input id="product-quantity" type="text" name="quantity" value="${entry.value.buyNum}" readonly ><%--class="form-control input-sm"--%>
                                         </div>
                                     </td>
-                                    <td class="goods-page-price">
-                                        <strong><span>$</span>47.00</strong>
+                                    <td class="goods-page-price">   <%--价格--%>
+                                        <strong><span>$</span>${entry.value.product.price}</strong>
                                     </td>
-                                    <td class="goods-page-total">
-                                        <strong><span>$</span>47.00</strong>
+                                    <td class="goods-page-total">   <%--小计--%>
+                                        <strong><span>$</span>${entry.value.subTotal}</strong>
                                     </td>
-                                    <td class="del-goods-col">
+                                    <td class="del-goods-col">  <%--删除操作--%>
                                         <a class="del-goods" href="javascript:;">&nbsp;</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="goods-page-image">
-                                        <a href="javascript:;"><img src="assets/pages/img/products/model4.jpg" alt="Berry Lace Dress"></a>
-                                    </td>
-                                    <td class="goods-page-description">
-                                        <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                                        <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                                        <em>More info is here</em>
-                                    </td>
-                                    <td class="goods-page-ref-no">
-                                        javc2133
-                                    </td>
-                                    <td class="goods-page-quantity">
-                                        <div class="product-quantity">
-                                            <input id="product-quantity2" type="text" value="1" readonly class="form-control input-sm">
-                                        </div>
-                                    </td>
-                                    <td class="goods-page-price">
-                                        <strong><span>$</span>47.00</strong>
-                                    </td>
-                                    <td class="goods-page-total">
-                                        <strong><span>$</span>47.00</strong>
-                                    </td>
-                                    <td class="del-goods-col">
-                                        <a class="del-goods" href="javascript:;">&nbsp;</a>
-                                    </td>
-                                </tr>
+                                </c:forEach>
                             </table>
                         </div>
 
@@ -275,21 +255,22 @@
                             <ul>
                                 <li>
                                     <em>总价</em>
-                                    <strong class="price"><span>$</span>47.00</strong>
+                                    <strong class="price"><span>$</span>${cart.total}</strong>
                                 </li>
-                                <li>
+                                <%--<li>
                                     <em>折扣</em>
                                     <strong class="price"><span>$</span>3.00</strong>
                                 </li>
                                 <li class="shopping-total-price">
                                     <em>应付款</em>
                                     <strong class="price"><span>$</span>50.00</strong>
-                                </li>
+                                </li>--%>
                             </ul>
                         </div>
                     </div>
                     <button class="btn btn-default" type="submit">继续购物  <i class="fa fa-shopping-cart"></i></button>
                     <button class="btn btn-primary" type="submit">提交订单 <i class="fa fa-check"></i></button>
+                    </c:if>
                 </div>
             </div>
 

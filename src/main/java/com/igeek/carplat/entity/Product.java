@@ -10,106 +10,110 @@ import java.util.Date;
  */
 public class Product {
 
-    private String Cid;    // 汽车id
-    private String CarNum;   //车牌号码
-    private String CarImg;   //汽车照片
-    private String CertificateImg;   //行驶证照片
-    private String Bid;   //汽车品牌id
+    private String cid;    // 汽车id
+    private String carNum;   //车牌号码
+    private String carImg;   //汽车照片
+    private String certificateImg;   //行驶证照片
+    private String bid;   //汽车品牌id
     private int is_cold;   //是否冷门产品
     private Date date;     //时间
+    private String type;   //型号
+    private double price;     //价格
 
 
     public Product() {
     }
 
-    public Product(String Cid, String CarNum, String CarImg, String CertificateImg, String Bid, int is_cold, Date date) {
-        this.Cid = Cid;
-        this.CarNum = CarNum;
-        this.CarImg = CarImg;
-        this.CertificateImg = CertificateImg;
-        this.Bid = Bid;
+    public Product(String cid, String carNum, String carImg, String certificateImg, String bid, int is_cold, Date date, String type, double price) {
+        this.cid = cid;
+        this.carNum = carNum;
+        this.carImg = carImg;
+        this.certificateImg = certificateImg;
+        this.bid = bid;
         this.is_cold = is_cold;
         this.date = date;
+        this.type = type;
+        this.price = price;
     }
 
     /**
      * 获取
-     * @return Cid
+     * @return cid
      */
     public String getCid() {
-        return Cid;
+        return cid;
     }
 
     /**
      * 设置
-     * @param Cid
+     * @param cid
      */
-    public void setCid(String Cid) {
-        this.Cid = Cid;
+    public void setCid(String cid) {
+        this.cid = cid;
     }
 
     /**
      * 获取
-     * @return CarNum
+     * @return carNum
      */
     public String getCarNum() {
-        return CarNum;
+        return carNum;
     }
 
     /**
      * 设置
-     * @param CarNum
+     * @param carNum
      */
-    public void setCarNum(String CarNum) {
-        this.CarNum = CarNum;
+    public void setCarNum(String carNum) {
+        this.carNum = carNum;
     }
 
     /**
      * 获取
-     * @return CarImg
+     * @return carImg
      */
     public String getCarImg() {
-        return CarImg;
+        return carImg;
     }
 
     /**
      * 设置
-     * @param CarImg
+     * @param carImg
      */
-    public void setCarImg(String CarImg) {
-        this.CarImg = CarImg;
+    public void setCarImg(String carImg) {
+        this.carImg = carImg;
     }
 
     /**
      * 获取
-     * @return CertificateImg
+     * @return certificateImg
      */
     public String getCertificateImg() {
-        return CertificateImg;
+        return certificateImg;
     }
 
     /**
      * 设置
-     * @param CertificateImg
+     * @param certificateImg
      */
-    public void setCertificateImg(String CertificateImg) {
-        this.CertificateImg = CertificateImg;
+    public void setCertificateImg(String certificateImg) {
+        this.certificateImg = certificateImg;
     }
 
     /**
      * 获取
-     * @return Bid
+     * @return bid
      */
     public String getBid() {
-        return Bid;
+        return bid;
     }
 
     /**
      * 设置
-     * @param Bid
+     * @param bid
      */
-    public void setBid(String Bid) {
-        this.Bid = Bid;
+    public void setBid(String bid) {
+        this.bid = bid;
     }
 
     /**
@@ -144,7 +148,39 @@ public class Product {
         this.date = date;
     }
 
+    /**
+     * 获取
+     * @return type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * 设置
+     * @param type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    /**
+     * 获取
+     * @return price
+     */
+    public double getPrice() {
+        return price;
+    }
+
+    /**
+     * 设置
+     * @param price
+     */
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public String toString() {
-        return "Product{Cid = " + Cid + ", CarNum = " + CarNum + ", CarImg = " + CarImg + ", CertificateImg = " + CertificateImg + ", Bid = " + Bid + ", is_cold = " + is_cold + ", date = " + date + "}";
+        return "Product{cid = " + cid + ", carNum = " + carNum + ", carImg = " + carImg + ", certificateImg = " + certificateImg + ", bid = " + bid + ", is_cold = " + is_cold + ", date = " + date + ", type = " + type + ", price = " + price + "}";
     }
 }
