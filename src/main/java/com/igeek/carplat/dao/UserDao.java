@@ -38,6 +38,12 @@ public class UserDao extends BaseDao<User> implements IDao<User> {
         return value;
     }
 
+    public Object findValueByUserName(Object... params) throws Exception {
+        String sql = "select count(*) from user where username = ?";
+        Object value = this.getSingleValue(DataSourceUtils.getConnection(), sql, params);
+        return value;
+    }
+
     @Override
     public int update(Object... params) throws Exception {
         String sql = "update user set state = 1 where code = ?";

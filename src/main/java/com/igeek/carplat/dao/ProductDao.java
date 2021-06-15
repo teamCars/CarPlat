@@ -72,6 +72,10 @@ public class ProductDao extends BaseDao<Product> implements IDao<Product> {
 
     @Override
     public int insert(Product product) throws Exception {
-        return 0;
+        String sql = "insert into car value(?,?,?,?,?,?,?,?,?)";
+        int i = this.updateInfo(DataSourceUtils.getConnection(), sql, product.getCid(), product.getCarNum(), product.getCarImg(),
+                product.getCertificateImg(), product.getBid(), product.getIs_cold(), product.getDate(), product.getType(),
+                product.getPrice());
+        return i;
     }
 }

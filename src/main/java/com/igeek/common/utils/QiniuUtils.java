@@ -39,7 +39,7 @@ public class QiniuUtils {
     String upToken = auth.uploadToken(bucket);
 
 
-    public void uploadStream(InputStream is){
+    public String uploadStream(InputStream is){
 
         //     byte[] uploadBytes = "hello qiniu cloud".getBytes("utf-8");
         //    ByteArrayInputStream byteInputStream=new ByteArrayInputStream(uploadBytes);
@@ -50,6 +50,7 @@ public class QiniuUtils {
             DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
             System.out.println(putRet.key);
             System.out.println(putRet.hash);
+            return putRet.key;
         } catch (QiniuException ex) {
             Response r = ex.response;
             System.err.println(r.toString());
@@ -59,6 +60,7 @@ public class QiniuUtils {
                 //ignore
             }
         }
+        return null;
 
     }
 

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "f2")
+@WebFilter(filterName = "f2",urlPatterns = "/inOrder/*")
 public class LoginFilter implements Filter {
     public void destroy() {
     }

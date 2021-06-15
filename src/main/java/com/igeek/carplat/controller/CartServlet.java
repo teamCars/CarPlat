@@ -2,6 +2,7 @@ package com.igeek.carplat.controller;
 
 import com.igeek.carplat.entity.Cart;
 import com.igeek.carplat.entity.CartItem;
+import com.igeek.carplat.entity.InOrder;
 import com.igeek.carplat.entity.Product;
 import com.igeek.carplat.service.ProductService;
 
@@ -35,6 +36,8 @@ public class CartServlet extends BaseServlet {
         HttpSession session=request.getSession();
         Cart cart=(Cart)session.getAttribute("cart");
 
+
+
         //若是第一次加入购物车
         if(cart==null){
             cart=new Cart();
@@ -63,6 +66,34 @@ public class CartServlet extends BaseServlet {
         //8.会哈作用域中添加cart信息
         session.setAttribute("cart",cart);
         //9.响应重定向至cart.jsp
+        response.sendRedirect("shopCar.jsp");
+    }
+
+    //删除购物项
+    public void delCart(HttpServletRequest request,HttpServletResponse response)throws IOException{
+        //1.获取请求参数中汽车编号
+        String cid = request.getParameter("cid");
+
+        //2.从会话中获取购物车cart的信息
+        HttpSession session=request.getSession();
+        Cart cart=(Cart)session.getAttribute("cart");
+
+        //3.获取Cart中的Map<String,CartItem>信息
+        Map<String ,CartItem> cartMap=cart.getMap();
+
+        //4.重新计算购物车总金额=原购物车的总金额-删除购物项的小计
+        CartItem cartItem=cartMap.get(cid);
+        cart.setTotal(cart.getTotal()-cartItem.getSubTotal());
+
+        //4.移除当前商品的购物项
+        cartMap.remove(cid);
+        System.out.println(cartMap);
+
+        //5.将操作完成的Cart信息，返回至会话中
+        cart.setMap(cartMap);
+        session.setAttribute("cart",cart);
+
+        //6.响应重定向至shopCar.jsp
         response.sendRedirect("shopCar.jsp");
     }
 }

@@ -119,22 +119,22 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">首页 </a>
+                            <a href="firstPageAfter.jsp" style="font-weight: 600;">首页 </a>
                         </li>
                         <li>
-                            <a href="#" style="color: #00BC93;font-weight: 600;">租车</a>
+                            <a href="${pageContext.request.contextPath}/product?method=findProducts&type='1'" style="color: #00BC93;font-weight: 600;">租车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">出车</a>
+                            <a href="toCar.jsp" style="font-weight: 600;">出车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">活动</a>
+                            <a href="${pageContext.request.contextPath}/product?method=active" style="font-weight: 600;">活动</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">问题总结</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">订单</a>
+                            <a href="${pageContext.request.contextPath}/inOrder?method=findMyOrder" style="font-weight: 600;">订单</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">关于凹凸</a>
@@ -143,7 +143,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#" style="font-weight: 600;">你好,xx用户</a>
+                            <a href="#" style="font-weight: 600;">你好,${user.username}用户</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: 600;background-color: transparent;">我的凹凸 <span class="caret"></span></a>
@@ -222,6 +222,9 @@
 
                                 <c:forEach items="${cart.map}" var="entry">
                                 <tr>
+<%--                                    <td>--%>
+<%--                                        <input type = "radio" value="${entry.key}" name ="carChoose" >--%>
+<%--                                    </td>--%>
                                     <td class="goods-page-image">   <%--图片--%>
                                         <input type="hidden" name="id" value="${entry.key}">
                                         <a href="javascript:;"><img src="http://quf7ft80k.hn-bkt.clouddn.com/${entry.value.product.carImg}" alt="${entry.value.product.bid}"></a>
@@ -244,7 +247,7 @@
                                         <strong><span>$</span>${entry.value.subTotal}</strong>
                                     </td>
                                     <td class="del-goods-col">  <%--删除操作--%>
-                                        <a class="del-goods" href="javascript:;">&nbsp;</a>
+                                        <a class="del-goods" href="${path}/cart?method=delCart&cid=${entry.key}">&nbsp;</a>
                                     </td>
                                 </tr>
                                 </c:forEach>
@@ -269,7 +272,8 @@
                         </div>
                     </div>
                     <button class="btn btn-default" type="submit">继续购物  <i class="fa fa-shopping-cart"></i></button>
-                    <button class="btn btn-primary" type="submit">提交订单 <i class="fa fa-check"></i></button>
+                    <button class="btn btn-primary" type="submit" onclick = "window.location.href='${pageContext.request.contextPath}/inOrder?method=submitOrder'">
+                        提交订单 <i class="fa fa-check"></i></button>
                     </c:if>
                 </div>
             </div>

@@ -7,8 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
 <!-- 导航栏 -->
 <div class="container-fluid" style="margin: 0px;padding: 0px;">
+
     <div class="row">
         <nav class="navbar navbar-default navbar-fixed-top" style="margin-right: 70px;height:85px;background-color: white;">
             <div class="container-fluid" style="padding-left:100px;padding-top:17px">
@@ -67,22 +69,22 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" style="color: #00BC93;font-weight: 600;">首页 </a>
+                            <a href="firstPageAfter.jsp" style="color: #00BC93;font-weight: 600;">首页 </a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">租车</a>
+                            <a href="${pageContext.request.contextPath}/product?method=findProducts&type='1'" style="font-weight: 600;">租车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">出车</a>
+                            <a href="toCar.jsp" style="font-weight: 600;">出车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">活动</a>
+                            <a href="${pageContext.request.contextPath}/product?method=active" style="font-weight: 600;">活动</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">问题总结</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">订单</a>
+                            <a href="${pageContext.request.contextPath}/inOrder?method=findMyOrder" style="font-weight: 600;">订单</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">关于凹凸</a>
@@ -91,7 +93,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#" style="font-weight: 600;">你好,${sessionScope.user.name}用户</a>
+                            <a href="#" style="font-weight: 600;">你好,${user.username}用户</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: 600;background-color: transparent;">我的凹凸 <span class="caret"></span></a>

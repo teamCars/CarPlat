@@ -85,6 +85,8 @@ public class UserServlet extends BaseServlet {
             pwdCookie = new Cookie("pwd",user.getPwd());
             nameCookie.setMaxAge(7*24*60*60);
             pwdCookie.setMaxAge(7*24*60*60);
+            response.addCookie(nameCookie);
+            response.addCookie(pwdCookie);
             session = request.getSession();
             session.setAttribute("user",user);
             response.sendRedirect("firstPageAfter.jsp");
@@ -108,6 +110,20 @@ public class UserServlet extends BaseServlet {
         String phone = request.getParameter("phone");
         //dao层查询，service判断，调用service层，判断
         boolean flag = service.validate(phone);
+        //将结果包装成json数据，响应回去
+        String str = "{\"flag\":"+flag+"}";
+        PrintWriter out = response.getWriter();
+        out.write(str);
+        out.flush();
+        out.close();
+    }
+
+
+    public void validateUsername(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        //获取请求参数
+        String username = request.getParameter("username");
+        //dao层查询，service判断，调用service层，判断
+        boolean flag = service.validateUsername(username);
         //将结果包装成json数据，响应回去
         String str = "{\"flag\":"+flag+"}";
         PrintWriter out = response.getWriter();
@@ -140,6 +156,8 @@ public class UserServlet extends BaseServlet {
                 pwdCookie = new Cookie("pwd",pwd);
                 nameCookie.setMaxAge(7*24*60*60);
                 pwdCookie.setMaxAge(7*24*60*60);
+                response.addCookie(nameCookie);
+                response.addCookie(pwdCookie);
             }
             //做登录控制
             session = request.getSession();

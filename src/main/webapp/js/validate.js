@@ -2,7 +2,8 @@
 $("#registForm").validate({
     rules:{
         "username":{
-            "required":true
+            "required":true,
+            "validateUsername":true
         },
         "pwd":{
             "required":true
@@ -25,7 +26,8 @@ $("#registForm").validate({
     },
     messages:{
         "username":{
-            "required":"用户名不能为空"
+            "required":"用户名不能为空",
+            "validateUsername":"用户名已经存在"
         },
         "pwd":{
             "required":"密码不能为空"
@@ -72,6 +74,21 @@ $.validator.addMethod("validatePhone",function(value,element,params){
         type:"post",
         url:"/user?method=validate",
         data:{"phone":value},
+        dataType:"json",
+        success:function (c) {
+            flag = c.flag;
+        }
+    });
+    return flag;
+});
+
+$.validator.addMethod("validateUsername",function(value,element,params){
+    var flag = false;
+    $.ajax({
+        async:false,
+        type:"post",
+        url:"/user?method=validateUsername",
+        data:{"username":value},
         dataType:"json",
         success:function (c) {
             flag = c.flag;

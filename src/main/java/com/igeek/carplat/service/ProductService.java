@@ -85,4 +85,20 @@ public class ProductService {
     }
 
 
+    public boolean insertCar(Product product){
+        try {
+            int i = dao.insert(product);
+            return i>0?true:false;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                DataSourceUtils.closeConnection();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
 }

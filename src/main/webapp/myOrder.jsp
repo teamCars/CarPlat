@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 半糖去冰
@@ -117,22 +118,22 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">首页 </a>
+                            <a href="firstPageAfter.jsp" style="font-weight: 600;">首页 </a>
                         </li>
                         <li>
-                            <a href="#" style="color: #00BC93;font-weight: 600;">租车</a>
+                            <a href="${pageContext.request.contextPath}/product?method=findProducts&type='1'" style="font-weight: 600;">租车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">出车</a>
+                            <a href="toCar.jsp" style="font-weight: 600;">出车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">活动</a>
+                            <a href="${pageContext.request.contextPath}/product?method=active" style="font-weight: 600;">活动</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">问题总结</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">订单</a>
+                            <a href="${pageContext.request.contextPath}/inOrder?method=findMyOrder" style="color: #00BC93;font-weight: 600;">订单</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">关于凹凸</a>
@@ -141,11 +142,11 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#" style="font-weight: 600;">你好,xx用户</a>
+                            <a href="#" style="font-weight: 600;">你好,${user.username}用户</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: 600;background-color: transparent;">我的凹凸 <span class="caret"></span></a>
-                            <ul class="dropdown-menu" style="min-width:0px; box-shadow:0px;">
+                            <ul class="dropdown-menu" style="min-width:0px; ">
                                 <li>
                                     <a href="#" style="font-weight: 500;">个人信息</a>
                                 </li>
@@ -207,50 +208,32 @@
                                     <table>
                                         <tr>
                                             <th class="checkout-number">订单号</th>
+                                            <th class="checkout-number">图片</th>
                                             <th class="checkout-description">商品名称</th>
-                                            <th class="checkout-quantity">数量</th>
+                                            <th class="checkout-quantity">天数</th>
                                             <th class="checkout-price">价格</th>
                                             <th class="checkout-total">总价</th>
                                         </tr>
-                                        <tr>
-                                            <td class="checkout-number">
-                                                <a href="javascript:;">2677677676221</a>
-                                            </td>
 
-                                            <td class="checkout-description">
-                                                <h3><a href="javascript:;">法式优雅唯美长袖婚纱</a></h3>
-                                            </td>
+                                        <c:forEach items="${orderVo.orderItems}" var="items">
+                                            <tr>
+                                                <td class="checkout-number">
+                                                    <a href="javascript:;">${items.iid}</a>
+                                                </td>
 
-                                            <td class="checkout-quantity">1</td>
-                                            <td class="checkout-price"><strong><span>￥</span>47.00</strong></td>
-                                            <td class="checkout-total"><strong><span>￥</span>47.00</strong></td>
-                                        </tr>
+                                                <td class="checkout-number">
+                                                    <a href="javascript:;"><img src="http://quf7ft80k.hn-bkt.clouddn.com/${items.carImg}" alt="Berry Lace Dress"></a>
+                                                </td>
+                                                <td class="checkout-description">
+                                                    <h3><a href="javascript:;">${items.type}</a></h3>
+                                                </td>
 
-                                        <tr>
-                                            <td class="checkout-number">
-                                                <a href="javascript:;">6546546456832</a>
-                                            </td>
-                                            <td class="checkout-description">
-                                                <h3><a href="javascript:;">中式立领复古蕾丝中袖婚纱</a></h3>
-                                            </td>
+                                                <td class="checkout-quantity">${items.daynum}</td>
+                                                <td class="checkout-price"><strong><span>￥</span>${items.price}</strong></td>
+                                                <td class="checkout-total"><strong><span>￥</span>${items.subtotal}</strong></td>
+                                            </tr>
+                                        </c:forEach>
 
-                                            <td class="checkout-quantity">1</td>
-                                            <td class="checkout-price"><strong><span>￥</span>47.00</strong></td>
-                                            <td class="checkout-total"><strong><span>￥</span>47.00</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="checkout-number">
-                                                <a href="javascript:;">99897877676</a>
-                                            </td>
-                                            <td class="checkout-description">
-                                                <h3><a href="javascript:;"> 喜结良缘婚房喜字贴</a></h3>
-                                            </td>
-
-                                            <td class="checkout-quantity">10</td>
-                                            <td class="checkout-price"><strong><span>￥</span>9.90</strong></td>
-                                            <td class="checkout-total"><strong><span>￥</span>99.00</strong></td>
-                                        </tr>
                                     </table>
                                 </div>
                                 <div class="checkout-total-block">
@@ -259,8 +242,7 @@
                                     </ul>
                                 </div>
                                 <div class="clearfix"></div>
-                                <button class="btn btn-primary pull-right" type="submit" id="button-confirm">确认订单</button>
-                                <button type="button" class="btn btn-default pull-right margin-right-20">返回首页</button>
+
                             </div>
                         </div>
                     </div>
@@ -270,6 +252,43 @@
             </div>
 
         </div>
+
+
+        <div style="text-align: center;">
+            <ul class="pagination">
+                <c:if test="${orderVo.pageNow eq 1}">
+                    <li class="disabled"><a href="#" aria-label="Previous"><span
+                            aria-hidden="true">&laquo;</span></a></li>
+                </c:if>
+                <c:if test="${orderVo.pageNow ne 1}">
+                    <li class="disabled"><a href="${pageContext.request.contextPath}/inOrder?method=findMyOrder&pageNow=${orderVo.pageNow-1}" aria-label="Previous"><span
+                            aria-hidden="true">&laquo;</span></a></li>
+                </c:if>
+
+                <c:forEach begin="1" end="${orderVo.myPages}" var="page">
+                    <c:if test="${page eq orderVo.pageNow}">
+                        <li class="active"><a href="${pageContext.request.contextPath}/inOrder?method=findMyOrder&pageNow=${page}">${page}</a></li>
+                    </c:if>
+                    <c:if test="${page ne orderVo.pageNow}">
+                        <li><a href="${pageContext.request.contextPath}/inOrder?method=findMyOrder&pageNow=${page}">${page}</a></li>
+                    </c:if>
+                </c:forEach>
+
+                <c:if test="${orderVo.pageNow eq orderVo.myPages}">
+                    <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                    </a></li>
+                </c:if>
+                <c:if test="${orderVo.pageNow ne orderVo.myPages}">
+                    <li><a href="${pageContext.request.contextPath}/inOrder?method=findMyOrder&pageNow=${orderVo.pageNow+1}" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                    </a></li>
+                </c:if>
+
+
+            </ul>
+        </div>
+
+        <button class="btn btn-primary pull-right" type="submit" id="button-confirm">确认订单</button>
+        <button type="button" class="btn btn-default pull-right margin-right-20">返回首页</button>
 
     </div>
 </div>

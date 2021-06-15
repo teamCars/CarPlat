@@ -62,16 +62,16 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" style="color: #00BC93;font-weight: 600;">首页 </a>
+                            <a href="firstPage.jsp" style="color: #00BC93;font-weight: 600;">首页 </a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">租车</a>
+                            <a href="register.jsp" style="font-weight: 600;">租车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">出车</a>
+                            <a href="register.jsp" style="font-weight: 600;">出车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">活动</a>
+                            <a href="register.jsp" style="font-weight: 600;">活动</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">关于凹凸</a>

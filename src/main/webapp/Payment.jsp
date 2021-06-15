@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 半糖去冰
@@ -115,35 +116,36 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">首页 </a>
+                            <a href="firstPageAfter.jsp" style="font-weight: 600;">首页 </a>
                         </li>
                         <li>
-                            <a href="#" style="color: #00BC93;font-weight: 600;">租车</a>
+                            <a href="${pageContext.request.contextPath}/product?method=findProducts&type='1'" style="font-weight: 600;">租车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">出车</a>
+                            <a href="toCar.jsp" style="color: #00BC93;font-weight: 600;">出车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">活动</a>
+                            <a href="${pageContext.request.contextPath}/product?method=active" style="font-weight: 600;">活动</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">问题总结</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">订单</a>
+                            <a href="${pageContext.request.contextPath}/inOrder?method=findMyOrder" style="font-weight: 600;">订单</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">关于凹凸</a>
                         </li>
 
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#" style="font-weight: 600;">你好,xx用户</a>
+                            <a href="#" style="font-weight: 600;">你好,${user.username}用户</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: 600;background-color: transparent;">我的凹凸 <span class="caret"></span></a>
-                            <ul class="dropdown-menu" style="min-width:0px; box-shadow:0px;">
+                            <ul class="dropdown-menu" style="min-width:0px; ">
                                 <li>
                                     <a href="#" style="font-weight: 500;">个人信息</a>
                                 </li>
@@ -210,54 +212,51 @@
                                 <div class="table-wrapper-responsive">
                                     <div class="form-group">
                                         <label for="firstname-dd">收货地址<span class="require">*</span></label>
-                                        <input type="text" id="firstname-dd" class="form-control">
+                                        <input type="text" id="firstname-dd" class="form-control" value="${inOrder.user.address}">
                                     </div>
                                     <table>
                                         <tr>
                                             <th class="checkout-image">图片</th>
                                             <th class="checkout-description">描述</th>
-                                            <th class="checkout-quantity">数量</th>
+                                            <th class="checkout-quantity">天数</th>
                                             <th class="checkout-price">价格</th>
                                             <th class="checkout-total">总价</th>
                                         </tr>
-                                        <tr>
-                                            <td class="checkout-image">
-                                                <a href="javascript:;"><img src="assets/pages/img/products/p11.jpg" alt="Berry Lace Dress"></a>
-                                            </td>
-                                            <td class="checkout-description">
-                                                <h3><a href="javascript:;">法式高腰婚纱</a></h3>
-                                                <p>- 种类: 白色</p>
-                                                <em>更多信息</em>
-                                            </td>
-                                            <td class="checkout-quantity">1</td>
-                                            <td class="checkout-price"><strong><span>￥</span>477.00</strong></td>
-                                            <td class="checkout-total"><strong><span>￥</span>477.00</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="checkout-image">
-                                                <a href="javascript:;"><img src="assets/pages/img/products/p12.jpg" alt="Berry Lace Dress"></a>
-                                            </td>
-                                            <td class="checkout-description">
-                                                <h3><a href="javascript:;">森系超仙简约婚纱</a></h3>
-                                                <p>- 种类: 米色</p>
-                                                <em>更多信息</em>
-                                            </td>
-                                            <td class="checkout-quantity">1</td>
-                                            <td class="checkout-price"><strong><span>￥</span>477.00</strong></td>
-                                            <td class="checkout-total"><strong><span>￥</span>477.00</strong></td>
-                                        </tr>
+                                        <c:forEach items="${inOrder.inOrderItems}" var="items">
+                                            <tr>
+                                                <td class="checkout-image">
+                                                    <a href="javascript:;"><img src="http://quf7ft80k.hn-bkt.clouddn.com/${items.product.carImg}" alt="Berry Lace Dress"></a>
+                                                </td>
+                                                <td class="checkout-description">
+                                                    <h3><a href="javascript:;">${items.product.type}</a></h3>
+                                                    <p>- 品牌: ${items.product.bid}</p>
+                                                    <em>更多信息</em>
+                                                </td>
+                                                <td class="checkout-quantity">${items.dayNum}</td>
+                                                <td class="checkout-price"><strong><span>￥</span>${items.product.price}</strong></td>
+                                                <td class="checkout-total"><strong><span>￥</span>${items.subTotal}</strong></td>
+                                            </tr>
+                                        </c:forEach>
                                     </table>
                                 </div>
                                 <div class="checkout-total-block">
                                     <ul>
                                         <li class="checkout-total-price">
                                             <em>总价</em>
-                                            <strong class="price"><span>￥</span>954.00</strong>
+                                            <strong class="price"><span>￥</span>${inOrder.total}</strong>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="clearfix"></div>
-                                <button class="btn btn-primary pull-right" type="submit" id="button-confirm">确认订单</button>
+                                <font color="red">${msg}</font>
+                                <button class="btn btn-primary pull-right" type="submit" id="button-confirm"
+                                onclick="affirmOrder()">确认订单</button>
+                                <script>
+                                    function affirmOrder() {
+                                        var address = $("#firstname-dd").val();
+                                        window.location.href='${pageContext.request.contextPath}/inOrder?method=affirmOrder&address='+address;
+                                    }
+                                </script>
                                 <button type="button" class="btn btn-default pull-right margin-right-20">取消</button>
                             </div>
                         </div>
@@ -273,7 +272,6 @@
 </div>
 
 
-<!-- 平台介绍-->
 <div class="container-fluid" style="margin: 0px;padding: 0px;">
     <div id="footer">
         <div id="platform" class="footer00">
@@ -316,7 +314,7 @@
         <div id="footerImg"></div>
     </div>
 </div>
-<!-- 右边悬浮框-->
+
 <div class="container-fluid">
     <div id="rightFloat">
         <ul>
@@ -327,7 +325,6 @@
         </ul>
     </div>
 </div>
-
 
 
 

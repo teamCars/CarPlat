@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @Date 2021/6/6 18:55
  */
 public class UserService {
-    private IDao<User> dao = new UserDao();
+    private UserDao dao = new UserDao();
 
     /**
      * @methodName register
@@ -82,6 +82,22 @@ public class UserService {
         return false;
     }
 
+    public boolean validateUsername(String username) {
+        try {
+            Long value = (Long) dao.findValueByUserName(username);
+            return value>0?false:true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                DataSourceUtils.closeConnection();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
     /**
      * @methodName login
      * @Description 登录
@@ -128,4 +144,6 @@ public class UserService {
         }
         return user;
     }
+
+
 }

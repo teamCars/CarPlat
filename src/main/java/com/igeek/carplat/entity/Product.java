@@ -24,6 +24,16 @@ public class Product {
     public Product() {
     }
 
+    public Product(String cid, String carNum, String carImg, String certificateImg, Date date, String type, double price) {
+        this.cid = cid;
+        this.carNum = carNum;
+        this.carImg = carImg;
+        this.certificateImg = certificateImg;
+        this.date = date;
+        this.type = type;
+        this.price = price;
+    }
+
     public Product(String cid, String carNum, String carImg, String certificateImg, String bid, int is_cold, Date date, String type, double price) {
         this.cid = cid;
         this.carNum = carNum;

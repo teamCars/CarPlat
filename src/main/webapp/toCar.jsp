@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <html>
 <head>
     <!-- 声明文档的编码集 -->
@@ -18,11 +19,13 @@
 
     <title>出车表单页面</title>
 
+
     <!--引入字体 -->
     <link href="css/fonts.css" rel="stylesheet">
 
     <!-- 引入Bootstrap核心样式文件 -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="My97DatePicker/WdatePicker.js"></script>
 
     <link href = "css/firstPage.css" rel="stylesheet">
 
@@ -102,22 +105,22 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">首页 </a>
+                            <a href="firstPageAfter.jsp" style="font-weight: 600;">首页 </a>
                         </li>
                         <li>
-                            <a href="#" style="color: #00BC93;font-weight: 600;">租车</a>
+                            <a href="${pageContext.request.contextPath}/product?method=findProducts&type='1'" style="font-weight: 600;">租车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">出车</a>
+                            <a href="toCar.jsp" style="color: #00BC93;font-weight: 600;">出车</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">活动</a>
+                            <a href="${pageContext.request.contextPath}/product?method=active" style="font-weight: 600;">活动</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">问题总结</a>
                         </li>
                         <li>
-                            <a href="#" style="font-weight: 600;">订单</a>
+                            <a href="${pageContext.request.contextPath}/inOrder?method=findMyOrder" style="font-weight: 600;">订单</a>
                         </li>
                         <li>
                             <a href="#" style="font-weight: 600;">关于凹凸</a>
@@ -126,7 +129,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#" style="font-weight: 600;">你好,xx用户</a>
+                            <a href="#" style="font-weight: 600;">你好,${user.username}用户</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: 600;background-color: transparent;">我的凹凸 <span class="caret"></span></a>
@@ -161,23 +164,51 @@
             <img src="img/toCar/11.jpg" width="100%" height="600px">
         </div>
     </div>
-    <div  class="row">
+    <div  class="row" style="height: 900px">
         <div class="col-md-6">
-            <img src="img/toCar/12.png" width="600px" height="600px" >
+            <img src="img/toCar/12.png" width="600px" height="700px" >
         </div>
         <div class="c2 col-md-6" style=" width: 600px;">
-            <form action="#">
+            <form action="${pageContext.request.contextPath}/product?method=becomeCarMaster" method="post"
+                  enctype="multipart/form-data" style="border:1px solid black; padding-bottom: 20px">
                 <table border="1px" cellpadding="0" cellspacing="0px" align="center">
                     <br><br>
-                    <h2 style="text-align: center;font-size: 25px;">注册成为车主</h2><br>
-                    <input type="text" name="" placeholder="请输入车辆所在地" style="height: 45px; width: 250px;margin-left: 220px;" /><br><br>
-                    <input type="text" name="" placeholder="请输入车辆品牌" style="height: 45px;width: 250px;margin-left: 220px;"/><br><br>
-                    <input type="text" name="" placeholder="请输入车辆型号" style="height: 45px;width: 250px;margin-left: 220px;"/><br><br>
-                    <input type="text" name="" placeholder="请输入车辆出厂年份" style="height: 45px;width: 250px;margin-left: 220px;"/><br><br>
-                    <input type="text" name="" placeholder="请输入车辆公里数" style="height: 45px;width: 250px;margin-left: 220px;"/><br><br>
-                    <input type="text" name="" placeholder="请输入手机号" style="height: 45px;width: 250px;margin-left: 220px;"/><br><br>
-                    <input type="text" name="" placeholder="请输入短信验证码" style="height: 45px;width: 250px;margin-left: 220px;"/><br><br>
-                    <input type="button" name="sbmit"  value="提交" style="width: 50px; height: 40px;margin-left: 260px;"/>
+                    <h2 style="text-align: center;font-size: 25px;color: #0C0C0C">注册成为车主</h2><br>
+                    <div class="form-group" style="margin-left:100px">
+                        <label style="color: gray">车牌号</label>
+                        <input type="text" name="carNum" placeholder="请输入车牌号" value="${car.carNum}" style="height: 45px; width: 250px;margin-left: 30px" /><br><br>
+                    </div>
+
+                    <div class="form-group" style="margin-left:100px">
+                        <label style="color: gray">车辆型号</label>
+                    <input type="text" name="type" placeholder="请输入车辆型号" value="${car.type}" style="height: 45px;width: 250px;margin-left: 20px"/><br><br>
+                    </div>
+
+                    <div class="form-group" style="margin-left:100px">
+                        <label style="color: gray">期望价格</label>
+                        <input type="text" name="price" placeholder="请输入期望价格" value="${car.price}" style="height: 45px;width: 250px;margin-left: 20px"/><br><br>
+                    </div>
+
+                    <div class="form-group" style="margin-left:100px">
+                        <label style="color: gray">交车日期</label>
+                    <input type="text" class="form-inline Wdate" id="createtime" value="${car.date}" placeholder="createtime" name="pdate" style="margin-left: 20px"
+                           onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                    </div>
+
+
+                    <div class="form-group" style="margin-left:100px">
+                        <label style="color: gray">车辆照片</label>
+                        <img id="carPic" width="100" height="100" style="margin-left: 20px" src = "http://quf7ft80k.hn-bkt.clouddn.com/${car.carImg}"/>
+                        <input type="file" name="carImg" placeholder="请输入车辆照片" style="height: 45px;width: 250px;margin-left: 20px" onchange="showPreview1(this)"/><br><br>
+                    </div>
+
+                    <div class="form-group" style="margin-left:100px">
+                        <label style="color: gray">车辆行驶证照片</label>
+                        <img id="activePic" width="100" height="100" style="margin-left: 10px" src="http://quf7ft80k.hn-bkt.clouddn.com/${car.certificateImg}"/>
+                        <input type="file" name="certificateImg" placeholder="请输入车辆行驶证照片" style="height: 45px;width: 250px;margin-left: 20px" onchange="showPreview2(this)"/><br><br>
+                    </div>
+
+                    <input type="submit" name="sbmit"  value="提交" style="width: 50px; height: 40px;margin-left: 260px;"/>
                     <input type="button" name="reset"  value="重置" style="width: 50px; height: 40px;margin-left: 50px;"/>
                 </table>
             </form>
@@ -188,6 +219,7 @@
     </div>
 </div>
 
+Fkc6t55Wf0qsCWrxmbfKBDS2Ezwk.jpg
 
 <!-- 平台介绍-->
 <div class="container-fluid" style="margin: 0px;padding: 0px;">
@@ -251,4 +283,29 @@
 <script src="js/bootstrap.min.js"></script>
 
 <script src = "js/firstPage.js"></script>
+
+<script type="text/javascript">
+    //将文件流以url形式读取，实现图片实时显示：
+    function showPreview1(source){
+        var file = source.files[0];
+        if(window.FileReader){
+            var fr = new FileReader();
+            fr.onloadend = function(e){
+                document.getElementById("carPic").src=e.target.result;
+            }
+            fr.readAsDataURL(file);
+        }
+    }
+
+    function showPreview2(source){
+        var file = source.files[0];
+        if(window.FileReader){
+            var fr = new FileReader();
+            fr.onloadend = function(e){
+                document.getElementById("activePic").src=e.target.result;
+            }
+            fr.readAsDataURL(file);
+        }
+    }
+</script>
 </html>
