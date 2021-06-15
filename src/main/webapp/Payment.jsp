@@ -119,7 +119,7 @@
                             <a href="firstPageAfter.jsp" style="font-weight: 600;">首页 </a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/product?method=findProducts&type='1'" style="font-weight: 600;">租车</a>
+                            <a href="${pageContext.request.contextPath}/product?method=findProducts&type=1" style="font-weight: 600;">租车</a>
                         </li>
                         <li>
                             <a href="toCar.jsp" style="color: #00BC93;font-weight: 600;">出车</a>
@@ -156,7 +156,7 @@
                                     <a href="#" style="font-weight: 500;">我的收藏</a>
                                 </li>
                                 <li>
-                                    <a href="#" style="font-weight: 500;">退出登录</a>
+                                    <a href="${pageContext.request.contextPath}/user?method=logout" style="font-weight: 500;">退出登录</a>
                                 </li>
                             </ul>
                         </li>
@@ -257,7 +257,7 @@
                                         window.location.href='${pageContext.request.contextPath}/inOrder?method=affirmOrder&address='+address;
                                     }
                                 </script>
-                                <button type="button" class="btn btn-default pull-right margin-right-20">取消</button>
+                                <button type="button" class="btn btn-default pull-right margin-right-20" onclick="window.location.href='shopCar.jsp'">取消</button>
                             </div>
                         </div>
                     </div>

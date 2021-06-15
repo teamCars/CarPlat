@@ -122,7 +122,7 @@
                             <a href="firstPageAfter.jsp" style="font-weight: 600;">首页 </a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/product?method=findProducts&type='1'" style="color: #00BC93;font-weight: 600;">租车</a>
+                            <a href="${pageContext.request.contextPath}/product?method=findProducts&type=1" style="color: #00BC93;font-weight: 600;">租车</a>
                         </li>
                         <li>
                             <a href="toCar.jsp" style="font-weight: 600;">出车</a>
@@ -158,7 +158,7 @@
                                     <a href="#" style="font-weight: 500;">我的收藏</a>
                                 </li>
                                 <li>
-                                    <a href="#" style="font-weight: 500;">退出登录</a>
+                                    <a href="${pageContext.request.contextPath}/user?method=logout" style="font-weight: 500;">退出登录</a>
                                 </li>
                             </ul>
                         </li>
@@ -205,7 +205,7 @@
                        <%-- <div style="margin-top: 30px;margin: auto">
                             <img src="assets/pages/img/products/cart-empty.png">
                         </div>--%>
-                        <button class="btn btn-default" type="submit">继续购物  <i class="fa fa-shopping-cart"></i></button>
+                        <button class="btn btn-default" type="submit" onclick="window.location.href='${pageContext.request.contextPath}/product?method=findProducts&type=1'">继续购物  <i class="fa fa-shopping-cart"></i></button>
                     </c:if>
                     <c:if test="${!empty cart.map}">
                     <div class="goods-data clearfix">
@@ -271,7 +271,7 @@
                             </ul>
                         </div>
                     </div>
-                    <button class="btn btn-default" type="submit">继续购物  <i class="fa fa-shopping-cart"></i></button>
+                    <button class="btn btn-default" type="submit" onclick="window.location.href='${pageContext.request.contextPath}/product?method=findProducts&type=1'">继续购物  <i class="fa fa-shopping-cart"></i></button>
                     <button class="btn btn-primary" type="submit" onclick = "window.location.href='${pageContext.request.contextPath}/inOrder?method=submitOrder'">
                         提交订单 <i class="fa fa-check"></i></button>
                     </c:if>

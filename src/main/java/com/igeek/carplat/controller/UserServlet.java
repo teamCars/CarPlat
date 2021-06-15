@@ -172,4 +172,11 @@ public class UserServlet extends BaseServlet {
         }
 
     }
+
+    public void logout(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        session.removeAttribute("user");
+        //跳转到首页
+        response.sendRedirect("firstPage.jsp");
+    }
 }

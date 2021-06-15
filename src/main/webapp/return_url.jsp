@@ -53,10 +53,10 @@
 		//付款金额
 		String total_amount = new String(request.getParameter("total_amount").getBytes("ISO-8859-1"),"UTF-8");
 
-		out.println("trade_no:"+trade_no+"<br/>out_trade_no:"+out_trade_no+"<br/>total_amount:"+total_amount);
+//		out.println("trade_no:"+trade_no+"<br/>out_trade_no:"+out_trade_no+"<br/>total_amount:"+total_amount);
 
 		InOrder order = (InOrder) session.getAttribute("inOrder");
-		if(order.getIid().equals(out_trade_no)){
+		if(order.getIid().equals(out_trade_no) && Double.valueOf(total_amount).equals(order.getTotal())){
 			//将会话中的信息移除
 			session.removeAttribute("inOrder");
 			session.removeAttribute("cart");
